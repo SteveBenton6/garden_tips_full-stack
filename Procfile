@@ -1,0 +1,1 @@
+web: gunicorn garden_tips.wsgi
