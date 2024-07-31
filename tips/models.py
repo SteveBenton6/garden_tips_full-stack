@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
-SEASON = (("spring", "SPRING"), ("summer", "SUMMER"), ("autumn", "AUTUMN"), ("winter", "WINTER" ))
-REGION = (("SE", "SOUTHERN ENGLAND"), ("WE", "WESTERN ENGLAND"), ("WA", "WALES"),
-    ("NE", "NORTEHRN ENGLAND"), ("SC", "SCOTLAND"), ("NI", "NORTHERN IRELAND"), ("MI", "MIDLANDS"))
+SEASON = (("Spring", "SPRING"), ("Summer", "SUMMER"), ("Autumn", "AUTUMN"), ("Winter", "WINTER" ))
+REGION = (("Southern England", "SOUTHERN ENGLAND"), ("West of England", "WESTERN ENGLAND"), ("Wales", "WALES"),
+    ("North of England", "NORTEHRN ENGLAND"), ("Scotland", "SCOTLAND"), ("Northern Ireland", "NORTHERN IRELAND"),
+     ("Midlands", "MIDLANDS"), ("Outside the UK", "NON UK"))
 SCORE = ((1, "*"), (2, "**"), (3, "***"), (4, "****"), (5, "*****"))
 
 # Create your models here.
