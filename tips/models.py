@@ -5,7 +5,7 @@ from cloudinary.models import CloudinaryField
 STATUS = ((0, "Draft"), (1, "Published"))
 SEASON = (("spring", "SPRING"), ("summer", "SUMMER"), ("autumn", "AUTUMN"), ("winter", "WINTER" ))
 REGION = (("SE", "SOUTHERN ENGLAND"), ("WE", "WESTERN ENGLAND"), ("WA", "WALES"),
-    ("NE", "NORTEHRN ENGLAND"), ("SC", "SCOTLAND"), ("NI", "NORTHERN IRELAND"))
+    ("NE", "NORTEHRN ENGLAND"), ("SC", "SCOTLAND"), ("NI", "NORTHERN IRELAND"), ("MI", "MIDLANDS"))
 
 # Create your models here.
 
@@ -17,8 +17,8 @@ class GardenTip(models.Model):
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "tip_creator")
-    season = models.IntegerField(choices=SEASON, default=0)
-    region = models.IntegerField(choices=REGION, default=0)
+    season = models.CharField(choices=SEASON, default="summer")
+    region = models.CharField(choices=REGION, default="SE")
     image = CloudinaryField('image', default='placeholder')
     garden_tip = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
