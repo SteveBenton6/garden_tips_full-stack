@@ -11,5 +11,6 @@ urlpatterns = [
 """
 urlpatterns = [
     path("", views.TipList.as_view(), name='home'),
+    path('<slug:slug>/', views.tips_detail, name='tips_detail'),
 ]
 

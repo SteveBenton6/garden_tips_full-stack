@@ -30,3 +30,26 @@ def show_article(request, tips_id):
 
     return render(request, "articles/tips_list.html", context )
 """
+def tips_detail(request, slug):
+    """
+    Display an individual :model:`blog.Post`.
+
+    **Context**
+
+    ``post``
+        An instance of :model:`blog.Post`.
+
+    **Template:**
+
+    :template:`blog/post_detail.html`
+    """
+
+    queryset = GardenTip.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "tips/tips_detail.html",
+        {"post": post},
+    )
+
