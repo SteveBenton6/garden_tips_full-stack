@@ -17,8 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+# Inlcude allows to import and use another url.py
+
 urlpatterns = [
-    path("", include("tips.urls"), name="tips-urls"),
     path('admin/', admin.site.urls),
+    path('summernote/', include('django_summernote.urls')),
+    path("", include("tips.urls"), name="tips-urls"),
     # path("articles/", include("tips.urls")),
 ]

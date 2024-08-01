@@ -12,7 +12,7 @@
     <h1>Garden Tips List</h1>
     {% for tips in object_list %}
     <h2>{{tips.title}}</h2>
-    <h3>Region: {{tips.region}}  Season: {{tips.season}}</h3>
+    <h3>Region: {{tips.region}} | Season: {{tips.season}}</h3>
     <p>{{ tips.garden_tip }}</p>
     <p>Author:{{ tips.creator }}</p>
     {% endfor %}

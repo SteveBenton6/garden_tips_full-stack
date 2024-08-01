@@ -13,8 +13,11 @@ class HomePage(TemplateView):
 """
 
 class TipList(generic.ListView):
-    queryset = GardenTip.objects.all()
+    queryset = GardenTip.objects.all().order_by("-created_on")
+    # queryset = GardenTip.objects.filter(status=1) -- To Hide Drafts
     template_name = "tips/tips_list.html"
+
+    
 
 
 """
