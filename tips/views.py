@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse
 
 from django.views import generic
 from .models import GardenTip
@@ -13,10 +13,11 @@ class HomePage(TemplateView):
 """
 
 class TipList(generic.ListView):
-    queryset = GardenTip.objects.all().order_by("-created_on")
+    queryset = GardenTip.objects.filter(status=1)
     # queryset = GardenTip.objects.filter(status=1) -- To Hide Drafts
-    template_name = "tips/tips_list.html"
-
+    # template_name = "tips/tips_list.html"
+    template_name = "tips/index.html"
+    paginate_by = 6
     
 
 
