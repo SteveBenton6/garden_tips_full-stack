@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.gitpod.io', '8000-stevebenton-gardentipsf-04zfblf4ng7.ws.codeinstitute-ide.net', '.herokuapp.com']
+ALLOWED_HOSTS = ['.gitpod.io', '8000-stevebenton-gardentipsf-eastoad5bfo.ws.codeinstitute-ide.net', '.herokuapp.com']
 
 CSRF_TRUSTED_ORIGINS = ['https://*.codeinstitute-ide.net', 'https://*.herokuapp.com']
 
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'django_summernote',
+    'about',
     'tips',
 ]
 
