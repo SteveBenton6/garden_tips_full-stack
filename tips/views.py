@@ -1,5 +1,4 @@
 from django.shortcuts import render, get_object_or_404, reverse
-
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -81,7 +80,7 @@ def tips_detail(request, slug):
 
 def feedback_edit(request, slug, comment_id):
     """
-    view to edit comments
+    view to edit feedback
     """
     if request.method == "POST":
 
@@ -118,6 +117,31 @@ def feedback_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
+"""
+PLACEHOLDER FOR SUBMIT TIP VIEW
+def submit_tip(request, slug, comment_id):
+    """
+"""
+    create a tip
+    """
+"""
+    if request.method == "POST":
 
+        queryset = GardenTip.objects.filter(status=1)
+        post = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Feedback, pk=comment_id)
+        comment_form = FeedbackForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.creator == request.user:
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
+"""
 
 

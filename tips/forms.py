@@ -1,5 +1,5 @@
 from django import forms
-from .models import Feedback
+from .models import Feedback, GardenTip
 
 class FeedbackForm(forms.ModelForm):
     """
@@ -11,3 +11,16 @@ class FeedbackForm(forms.ModelForm):
         """
         model = Feedback
         fields = ('tip_feedback', 'score',)
+
+
+
+class TipsForm(forms.ModelForm):
+    """
+    Form class for users to submit a tip
+    """
+    class Meta:
+        """
+        Specify the Django model and order of the fields
+        """
+        model = GardenTip
+        fields = ('season', 'region', 'image', 'garden_tip' )
