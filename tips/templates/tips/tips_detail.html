@@ -8,11 +8,15 @@
             <div class="col-md-6 masthead-text">
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Post author goes before the | the post's created date goes after -->
+                <!-- Post creator goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.creator }} | {{ post.created_on }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+               {% if "placeholder" in post.image.url %}
+              <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder">
+              {% else %}
+              <img src="{{ post.image.url }}" class="scale" alt="{{ post.title }}">
+              {% endif %}
             </div>
         </div>
     </div>
@@ -30,6 +34,15 @@
             </div>
         </div>
     </div>
+
+    <!-- Individual Tip Delete and Edit Buttons -->
+    {% if user.is_authenticated and post.creator == user %}
+    <button class="btn btn-delete"
+        comment_id="{{ comment.id }}">Delete</button>
+    <button class="btn btn-edit"
+        comment_id="{{ comment.id }}">Edit</button>
+    {% endif %}
+
     <!-- Displaying count of comments -->
   <div class="row">
     <div class="col-12">
@@ -59,7 +72,7 @@
             </span> wrote:
           </p>
           <div id="comment{{ comment.id }}">
-            <span class="font-weight-normal"> Feedback score -  
+            <span class="font-weight-normal"> Feedback score stars -  
                 {{ comment.score }}
               </span>
             {{ comment.tip_feedback | linebreaks }}

@@ -26,21 +26,25 @@ class TipList(generic.ListView):
 """
 def show_article(request, tips_id):
     retrieved_tips = get_object_or_404(GardenTip, id=tips_id)
-    context - {
-        "article": retrieved_tips,
+    context = {
+        "gardentips": retrieved_tips,
     }
-
-    return render(request, "articles/tips_list.html", context )
+    return render(request, "gardentips/tips_list.html", context )
 """
 def tips_detail(request, slug):
     """
     Display an individual :model:`blog.Post`.
 
     **Context**
-
     ``post``
         An instance of :model:`tips.`.
-
+    ``comments``
+        All approved comments related to the tip.
+    ``comment_count``
+        A count of approved feedback related to the post.
+    ``comment_form``
+        An instance of :form:`blog.CommentForm`
+    
     **Template:**
 
     :template:`tips/tips_detail.html`

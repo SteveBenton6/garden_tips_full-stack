@@ -7,7 +7,8 @@ SEASON = (("Spring", "SPRING"), ("Summer", "SUMMER"), ("Autumn", "AUTUMN"), ("Wi
 REGION = (("Southern England", "SOUTHERN ENGLAND"), ("West of England", "WESTERN ENGLAND"), ("Wales", "WALES"),
     ("North of England", "NORTEHRN ENGLAND"), ("Scotland", "SCOTLAND"), ("Northern Ireland", "NORTHERN IRELAND"),
      ("Midlands", "MIDLANDS"), ("Outside the UK", "NON UK"))
-SCORE = ((1, "*"), (2, "**"), (3, "***"), (4, "****"), (5, "*****"))
+SCORE = ((" ", "Score 0 out of 5"), ("*", "Score 1 out of 5"), ("**", "Score 2 out of 5"), ("***", "Score 3 out of 5"),
+     ("****", "Score 4 out of 5"), ("*****", "Score 5 out of 5"))
 
 # Create your models here.
 
@@ -43,7 +44,7 @@ class Feedback(models.Model):
     post = models.ForeignKey(GardenTip, on_delete=models.CASCADE, related_name = "feedback")
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "respondent")
     tip_feedback = models.TextField()
-    score = models.IntegerField(choices=SCORE, default=3)
+    score = models.CharField(choices=SCORE, default=" ")
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 

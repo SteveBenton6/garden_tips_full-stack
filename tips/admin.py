@@ -5,7 +5,7 @@ from .models import GardenTip, Feedback
 @admin.register(GardenTip) 
 class TipAdmin(SummernoteModelAdmin):
     """
-    Lists fields for display in admin, fileds for search,
+    Lists fields for display in admin, fields for search,
     field filters, fields to prepopulate and rich-text editor.
     """
 
