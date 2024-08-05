@@ -40,7 +40,7 @@ class Feedback(models.Model):
     Stores a single Feedback entry related to the model:"auth.User" and model:"GardenTip".
 
     """
-    garden_tip = models.ForeignKey(GardenTip, on_delete=models.CASCADE, related_name = "feedback")
+    post = models.ForeignKey(GardenTip, on_delete=models.CASCADE, related_name = "feedback")
     creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "respondent")
     tip_feedback = models.TextField()
     score = models.IntegerField(choices=SCORE, default=3)

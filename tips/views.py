@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 
 from django.views import generic
-from .models import GardenTip
+from .models import GardenTip, Feedback
 
 # Create your views here.
 """
@@ -37,19 +37,27 @@ def tips_detail(request, slug):
     **Context**
 
     ``post``
-        An instance of :model:`blog.Post`.
+        An instance of :model:`tips.`.
 
     **Template:**
 
-    :template:`blog/post_detail.html`
+    :template:`tips/tips_detail.html`
     """
 
     queryset = GardenTip.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    comments = post.feedback.all().order_by("-created_on")
+    comment_count = post.feedback.filter(approved=True).count()
+
+
 
     return render(
         request,
         "tips/tips_detail.html",
-        {"post": post},
+        {
+            "post": post,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
     )
 
