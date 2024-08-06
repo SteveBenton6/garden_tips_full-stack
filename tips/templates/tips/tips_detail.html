@@ -35,13 +35,13 @@
         </div>
     </div>
 
-    <!-- Individual Tip Delete and Edit Buttons -->
+    <!-- Individual Tip Delete and Edit Buttons
     {% if user.is_authenticated and post.creator == user %}
     <button class="btn btn-delete"
-        comment_id="{{ comment.id }}">Delete</button>
+        data-comment_id="{{ comment.id }}">Delete</button>
     <button class="btn btn-edit"
-        comment_id="{{ comment.id }}">Edit</button>
-    {% endif %}
+        data-comment_id="{{ comment.id }}">Edit</button>
+    {% endif %} -->
 
     <!-- Displaying count of comments -->
   <div class="row">
@@ -72,21 +72,19 @@
             </span> wrote:
           </p>
           <div id="comment{{ comment.id }}">
-            <span class="font-weight-normal"> Feedback score stars -  
-                {{ comment.score }}
-              </span>
             {{ comment.tip_feedback | linebreaks }}
           </div>
           {% if not comment.approved and comment.creator == user %}
           <p class="approval">
-            This comment is awaiting approval
+            This feedback is awaiting approval
           </p>
           {% endif %}
+          <!-- Feedback Edit and Delete Buttons-->
             {% if user.is_authenticated and comment.creator == user %}
             <button class="btn btn-delete"
-                comment_id="{{ comment.id }}">Delete</button>
+                data-comment_id="{{ comment.id }}">Delete</button>
             <button class="btn btn-edit"
-                comment_id="{{ comment.id }}">Edit</button>
+                data-comment_id="{{ comment.id }}">Edit</button>
             {% endif %}
         </div>
         <!-- Our for loop ends here -->
@@ -97,7 +95,7 @@
     <div class="col-md-4 card mb-4 mt-3">
         <div class="card-body">
           {% if user.is_authenticated %}
-          <h3>Leave a comment:</h3>
+          <h3>Leave some feedback:</h3>
           <p>Posting as: {{ user.username }}</p>
           <form id="commentForm" method="post"
             style="margin-top: 1.3em;">

@@ -14,7 +14,7 @@ class FeedbackForm(forms.ModelForm):
 
 
 
-class TipsForm(forms.ModelForm):
+class GardenTipsForm(forms.ModelForm):
     """
     Form class for users to submit a tip
     """
