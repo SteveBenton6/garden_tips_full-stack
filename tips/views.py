@@ -3,37 +3,19 @@ from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import GardenTip, Feedback
-from .forms import FeedbackForm
-
-# Create your views here.
-"""
-class HomePage(TemplateView):
-
-    # Displays home page"
-
-    template_name = 'index.html'
-"""
+from .forms import FeedbackForm, GardenTipsForm
 
 class TipList(generic.ListView):
+    """
+    Display all Garden Tips
+    """
     queryset = GardenTip.objects.filter(status=1)
-    # queryset = GardenTip.objects.filter(status=1) -- To Hide Drafts
-    # template_name = "tips/tips_list.html"
     template_name = "tips/index.html"
     paginate_by = 6
     
-
-
-"""
-def show_article(request, tips_id):
-    retrieved_tips = get_object_or_404(GardenTip, id=tips_id)
-    context = {
-        "gardentips": retrieved_tips,
-    }
-    return render(request, "gardentips/tips_list.html", context )
-"""
 def tips_detail(request, slug):
     """
-    Display an individual :model:`blog.Post`.
+    Display an individual Garden Tip.
 
     **Context**
     ``post``
@@ -81,10 +63,9 @@ def tips_detail(request, slug):
         },
     )
 
-
 def feedback_edit(request, slug, comment_id):
     """
-    view to edit feedback
+    Display to edit feedback item
     """
     if request.method == "POST":
 
@@ -104,10 +85,9 @@ def feedback_edit(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
-
 def feedback_delete(request, slug, comment_id):
     """
-    view to delete feedback
+    Display to delete feedback
     """
     queryset = GardenTip.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -121,31 +101,59 @@ def feedback_delete(request, slug, comment_id):
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
-"""
-PLACEHOLDER FOR SUBMIT TIP VIEW
-def submit_tip(request, slug, comment_id):
+def create_tip(request):
     """
-"""
-    create a tip
+    Display to create a tip
     """
-"""
+    if request.method == "POST":
+        form = GardenTipsForm(request, POST)
+        if form_is_valid():
+            form.save()
+            messages.success(request, "Your Garden Tip was Submitted.")
+            return redirect("home") 
+    else:
+        create_form = GardenTipsForm()
+        return render(
+            request,
+            "tips/create_tip.html",
+            {"create_form": create_form},
+        )
+
+def tip_edit(request, slug, post_id):
+    """
+    Display to edit Garden Tip
+    """
     if request.method == "POST":
 
         queryset = GardenTip.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Feedback, pk=comment_id)
-        comment_form = FeedbackForm(data=request.POST, instance=comment)
+        tip_form = GardenTipsForm(data=request.POST, instance=post)
 
-        if comment_form.is_valid() and comment.creator == request.user:
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.approved = False
-            comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        if tip_form.is_valid() and post.creator == request.user:
+            post = tip_form.save(commit=False)
+            post.post = post
+            post.approved = False
+            post.save()
+            messages.add_message(request, messages.SUCCESS, 'Garden Tip Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, 'Error updating Garden Tip!')
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
-"""
 
 
+def tip_delete(request, slug, post_id):
+    """
+    Display to delete Garden Tip
+    """
+    queryset = GardenTip.objects.filter(status=1)
+    post = get_object_or_404(queryset, slug=slug)
+
+    if post.creator == request.user:
+        post.delete()
+        messages.add_message(request, messages.SUCCESS, 'Garden Tip deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
+    
+    

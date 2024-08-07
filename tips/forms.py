@@ -16,11 +16,11 @@ class FeedbackForm(forms.ModelForm):
 
 class GardenTipsForm(forms.ModelForm):
     """
-    Form class for users to submit a tip
+    Form class for registered users to submit a tip
     """
     class Meta:
         """
         Specify the Django model and order of the fields
         """
         model = GardenTip
-        fields = ('season', 'region', 'image', 'garden_tip' )
+        fields = ('title', 'creator', 'season', 'region', 'image', 'garden_tip',)

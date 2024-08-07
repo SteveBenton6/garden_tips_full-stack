@@ -7,6 +7,15 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
+//For tip form
+const tipForm = document.getElementById("tipForm");
+const submitTipButton = document.getElementById("submitTipButton");
+const editTipButtons = document.getElementsByClassName("btn-tip_edit");
+const deleteTipButtons = document.getElementsByClassName("btn-tip-delete");
+
+
+
+
 
 
 
@@ -25,13 +34,10 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 for (let button of editButtons) {
   button.addEventListener("click", (e) => {
     let commentId = e.target.getAttribute("data-comment_id");
-    // let slug = "{{ post.slug }}"; // Assuming you pass the post slug to the template
     let commentContent = document.getElementById(`comment${commentId}`).innerText;
     commentText.value = commentContent;
     submitButton.innerText = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    // commentForm.setAttribute("action", `/$(slug)/edit_comment/${commentId}`);
-
   });
 }
 

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static }
+{% load crispy_forms_tags %}
+
+<h1>CREATE GARDEN TIP</h1>
+
+<!-- Creating New Garden Tip -->
+<div class="col-md-4 card mb-4 mt-3">
+    <div class="card-body">
+      {% if user.is_authenticated %}
+      <h3>Create a New Garden Tip:</h3>
+      <p>Creating Tip as: {{ user.username }}</p>
+      <form id="tipForm" method="POST"
+        style="margin-top: 1.3em;">
+        {{ create_form | crispy }}
+        {% csrf_token %}
+        <button id="submitTipButton" type="submit"
+          class="btn btn-signup btn-lg">Submit</button>
+      </form>
+      {% else %}
+      <p>Log in to create a new tip</p>
+      {% endif %}
+    </div>
+  </div>
+
+{% endblock content %}

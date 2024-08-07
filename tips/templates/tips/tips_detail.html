@@ -35,13 +35,13 @@
         </div>
     </div>
 
-    <!-- Individual Tip Delete and Edit Buttons
+   <!-- Individual Tip Delete and Edit Buttons -->
     {% if user.is_authenticated and post.creator == user %}
-    <button class="btn btn-delete"
-        data-comment_id="{{ comment.id }}">Delete</button>
-    <button class="btn btn-edit"
-        data-comment_id="{{ comment.id }}">Edit</button>
-    {% endif %} -->
+    <button class="btn btn-tip-delete"
+        data-comment_id="{{ post.id }}">Delete</button>
+    <button class="btn btn-tip-edit"
+        data-comment_id="{{ post.id }}">Edit</button>
+    {% endif %}
 
     <!-- Displaying count of comments -->
   <div class="row">
@@ -74,6 +74,11 @@
           <div id="comment{{ comment.id }}">
             {{ comment.tip_feedback | linebreaks }}
           </div>
+          <p>
+
+            Feedback Score: {{ comment.score}}
+          
+          </p>
           {% if not comment.approved and comment.creator == user %}
           <p class="approval">
             This feedback is awaiting approval
