@@ -23,4 +23,4 @@ class GardenTipsForm(forms.ModelForm):
         Specify the Django model and order of the fields
         """
         model = GardenTip
-        fields = ('title', 'creator', 'season', 'region', 'image', 'garden_tip',)
+        fields = ('title', 'season', 'region', 'image', 'garden_tip',)

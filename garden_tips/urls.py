@@ -20,7 +20,6 @@ from django.urls import path, include
 # Include allows to import and use another url.py
 
 urlpatterns = [
-    path("createtip/", include("tips.urls")),
     path("about/", include("about.urls")),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),

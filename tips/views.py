@@ -108,6 +108,8 @@ def create_tip(request):
     if request.method == "POST":
         tip_form = GardenTipsForm(request.POST, request.FILES)
         if tip_form.is_valid():
+            tip = tip_form.save(commit=False)
+            tip.creator = request.user
             tip_form.save()
             messages.success(request, "Your Garden Tip was Submitted.")
             return redirect("home") 
