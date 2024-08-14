@@ -20,11 +20,16 @@ from django.urls import path, include
 # Include allows to import and use another url.py
 
 urlpatterns = [
-    path("createtip/", include("tips.urls"), name="create_tip-urls"),
-    path("about/", include("about.urls"), name="about-urls"),
+    path("createtip/", include("tips.urls")),
+    path("about/", include("about.urls")),
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
-    path("", include("tips.urls"), name="tips-urls"),
+    path("", include("tips.urls")),
     # path("articles/", include("tips.urls")),
 ]
+
+# Removed the name part in line with Chat GPT advice for include
+# path("createtip/", include("tips.urls"), name="create_tip-urls"),
+# path("about/", include("about.urls"), name="about-urls"),
+# path("", include("tips.urls"), name="tips-urls"),

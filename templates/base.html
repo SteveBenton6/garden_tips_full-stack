@@ -58,7 +58,7 @@
                     {% if user.is_authenticated %}
                    
                     <li class="nav-item">
-	                    <a class="nav-link {% if request.path == createtip_url %}active{% endif %}" aria-current="page" href="{{ createtip_url }}">Create Tip</a>
+	                    <a class="nav-link {% if request.path == create_tip_url %}active{% endif %}" aria-current="page" href="{% url 'create_tip' %}">Create Tip</a>
                     </li>
                     
                     <li class="nav-item">

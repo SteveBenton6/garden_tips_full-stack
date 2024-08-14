@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
@@ -106,19 +106,17 @@ def create_tip(request):
     Display to create a tip
     """
     if request.method == "POST":
-        form = GardenTipsForm(request, POST)
-        if form_is_valid():
-            form.save()
+        tip_form = GardenTipsForm(request.POST, request.FILES)
+        if tip_form.is_valid():
+            tip_form.save()
             messages.success(request, "Your Garden Tip was Submitted.")
             return redirect("home") 
     else:
-        create_form = GardenTipsForm()
-        return render(
-            request,
-            "tips/create_tip.html",
-            {"create_form": create_form},
-        )
+        tip_form = GardenTipsForm()
+        context = { "tip_form": tip_form,}
+        return render(request, "tips/create_tip.html", context)
 
+    
 def tip_edit(request, slug, post_id):
     """
     Display to edit Garden Tip
