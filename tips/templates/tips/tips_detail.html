@@ -1,6 +1,8 @@
 {% extends 'base.html' %} {% block content %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% url 'edit_tip' as edit_tip_url %}
+{% url 'delete_tip' as delete_tip_url %}
 
 <div class="masthead">
     <div class="container">
@@ -37,10 +39,8 @@
 
    <!-- Individual Tip Delete and Edit Buttons -->
     {% if user.is_authenticated and post.creator == user %}
-    <button class="btn btn-tip-delete"
-        data-comment_id="{{ post.id }}">Delete</button>
-    <button class="btn btn-tip-edit"
-        data-comment_id="{{ post.id }}">Edit</button>
+    <button class="btn btn-tip-edit" onclick="location.href='{% url 'tip_edit' post.slug %}'">Edit</button>
+    <button class="btn btn-tip-delete" onclick="location.href='{% url 'tip_delete' post.slug %}'">Delete</button>
     {% endif %}
 
     <!-- Displaying count of comments -->

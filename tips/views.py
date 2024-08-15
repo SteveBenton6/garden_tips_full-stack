@@ -111,7 +111,7 @@ def create_tip(request):
             tip = tip_form.save(commit=False)
             tip.creator = request.user
             tip_form.save()
-            messages.success(request, "Your Garden Tip was Submitted.")
+            messages.success(request, "Your Garden Tip was Submitted for approval.")
             return redirect("home") 
     else:
         tip_form = GardenTipsForm()
@@ -119,41 +119,53 @@ def create_tip(request):
         return render(request, "tips/create_tip.html", context)
 
     
-def tip_edit(request, slug, post_id):
+def tip_edit(request, slug):
     """
     Display to edit Garden Tip
     """
+    queryset = GardenTip.objects.filter(status=1)
+    retrieved_tip = get_object_or_404(queryset, slug=slug)
+
+    if not request.user == retrieved_tip.creator:
+        messages.error(request, "You cannot edit an article you did not create!")
+        return redirect("home") 
+
     if request.method == "POST":
+        tip_form = GardenTipsForm(request.POST, request.FILES, instance=retrieved_tip)
+        if tip_form.is_valid():
+            tip = tip_form.save(commit=False)
+            tip_form.save()
+            messages.success(request, "Your Edited Garden Tip was Submitted for approval.")
+            return redirect("home") 
+    else:
+        tip_form = GardenTipsForm(instance=retrieved_tip)
+        context = {
+            "tip_form": tip_form,
+            "retrieved_tip": retrieved_tip,
+        }
+        return render(request, "tips/edit_tip.html", context)
 
-        queryset = GardenTip.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        tip_form = GardenTipsForm(data=request.POST, instance=post)
+    
 
-        if tip_form.is_valid() and post.creator == request.user:
-            post = tip_form.save(commit=False)
-            post.post = post
-            post.approved = False
-            post.save()
-            messages.add_message(request, messages.SUCCESS, 'Garden Tip Updated!')
-        else:
-            messages.add_message(request, messages.ERROR, 'Error updating Garden Tip!')
-
-    return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
-
-
-def tip_delete(request, slug, post_id):
+def tip_delete(request, slug):
     """
     Display to delete Garden Tip
     """
     queryset = GardenTip.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    retrieved_tip = get_object_or_404(queryset, slug=slug)
 
-    if post.creator == request.user:
-        post.delete()
-        messages.add_message(request, messages.SUCCESS, 'Garden Tip deleted!')
+    if not request.user == retrieved_tip.creator:
+        messages.error(request, "You cannot delete an article you did not create!")
+        return redirect("home") 
+
+    if request.method == "POST":
+        retrieved_tip.delete()
+        messages.success(request, "Your Garden Tip was Deleted.")
+        return redirect("home")
+
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
-
-    return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
-    
-    
+        context = {
+            "tip": retrieved_tip,
+            "retrieved_tip": retrieved_tip,
+        }
+        return render(request, "tips/delete_tip.html", context)
