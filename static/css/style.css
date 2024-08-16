@@ -2,6 +2,12 @@ body {
     background-color: #F9FAFC;
 }
 
+.top-image img {
+    object-fit: cover;
+    height: 75px;
+    width: 100%;
+}
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;
@@ -13,8 +19,19 @@ body {
     color: #E84610;
 }
 
+.green-brand {
+    font-family: Lato, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #074513;
+}
+
 .thin {
     font-weight: 300;
+}
+
+.bg-lightgr {
+    color: #52b967;
 }
 
 .light-bg {
@@ -22,7 +39,8 @@ body {
 }
 
 .dark-bg {
-    background-color: #445261;
+    /* background-color: #445261; */
+    background-color: #074513;
 }
 
 .main-bg {
@@ -67,7 +85,8 @@ body {
 }
 
 .masthead-text {
-    background-color: #445261;
+    background-color: #074513;
+    /* background-color: #445261; */
     color: white;
     position: relative;
 }
@@ -84,7 +103,8 @@ body {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #445261;
+    background: #074513; 
+    /* background: #445261; */
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
@@ -144,7 +164,7 @@ body {
 .btn-delete,
 .btn-tip-delete {
     color: #fff;
-    background: #E84610;
+    background: #f00d36;
 }
 
 .btn-like:hover,

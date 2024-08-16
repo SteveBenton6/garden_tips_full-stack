@@ -79,7 +79,10 @@ def feedback_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
+            messages.success(request, 'Comment Updated!')
+            """
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            """
         else:
             messages.add_message(request, messages.ERROR, 'Error updating comment!')
 
@@ -110,6 +113,7 @@ def create_tip(request):
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
             tip.creator = request.user
+            tip.approved = False
             tip_form.save()
             messages.success(request, "Your Garden Tip was Submitted for approval.")
             return redirect("home") 
@@ -134,8 +138,9 @@ def tip_edit(request, slug):
         tip_form = GardenTipsForm(request.POST, request.FILES, instance=retrieved_tip)
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
+            tip.approved = False
             tip_form.save()
-            messages.success(request, "Your Edited Garden Tip was Submitted for approval.")
+            messages.success(request, "Your edited Garden Tip was Submitted for approval.")
             return redirect("home") 
     else:
         tip_form = GardenTipsForm(instance=retrieved_tip)
@@ -144,8 +149,6 @@ def tip_edit(request, slug):
             "retrieved_tip": retrieved_tip,
         }
         return render(request, "tips/edit_tip.html", context)
-
-    
 
 def tip_delete(request, slug):
     """
