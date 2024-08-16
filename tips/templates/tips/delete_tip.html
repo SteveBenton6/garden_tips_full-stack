@@ -7,7 +7,9 @@
 <div class="col-md-6 offset-md-3 card mb-4 mt-3">
     <div class="card-body">
       {% if user.is_authenticated %}
-      <h3>Are you sure you want to Delete Garden Tip: {{tip.title}} ?</h3>
+      <h3>Are you sure you want to Delete your Garden Tip: {{tip.title}} ?</h3>
+      <p>This action cannot be undone.</p>
+      <br>
       <p>Delete Tip as: {{ user.username }}</p>
       
       <form id="tipForm" method="POST" enctype="multipart/form-data" style="margin-top: 1.3em;">
@@ -16,7 +18,7 @@
         <button id="submitTipButton" type="submit" class="btn btn-tip-delete">Confrim Delete Tip</button>
       </form>
       <br>
-      <button class="btn btn-tip-edit" onclick="location.href='{% url 'home' %}'">No, take me to Home Page</button>
+      <button class="btn btn-tip-edit" onclick="location.href='{% url 'home' %}'">No, take me back to the Home Page</button>
       {% else %}
       <p>Log in to delete your tip</p>
       {% endif %}

@@ -7,11 +7,6 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
-
-
-
-
-
 /**
 * Initializes edit functionality for the provided edit buttons.
 * 
@@ -22,18 +17,16 @@ const deleteConfirm = document.getElementById("deleteConfirm");
 * - Updates the submit button's text to "Update".
 * - Sets the form's action attribute to the `edit_comment/{commentId}` endpoint.
 */
-
 for (let button of editButtons) {
   button.addEventListener("click", (e) => {
     let commentId = e.target.getAttribute("data-comment_id");
-    // let slug = "{{ post.slug }}"; // Assuming you pass the post slug to the template
     let commentContent = document.getElementById(`comment${commentId}`).innerText;
     commentText.value = commentContent;
     submitButton.innerText = "Update";
     commentForm.setAttribute("action", `edit_comment/${commentId}`);
-    // commentForm.setAttribute("action", `/$(slug)/edit_comment/${commentId}`);
   });
 }
+
 
 /*
  * Initializes deletion functionality for the provided delete buttons.
@@ -52,3 +45,4 @@ for (let button of deleteButtons) {
       deleteModal.show();
   });
 }
+

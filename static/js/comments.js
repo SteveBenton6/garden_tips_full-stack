@@ -7,13 +7,6 @@ const deleteModal = new bootstrap.Modal(document.getElementById("deleteModal"));
 const deleteButtons = document.getElementsByClassName("btn-delete");
 const deleteConfirm = document.getElementById("deleteConfirm");
 
-//For tip form
-const tipForm = document.getElementById("tipForm");
-const editTipButtons = document.getElementsByClassName("btn-tip_edit");
-const deleteTipButtons = document.getElementsByClassName("btn-tip-delete");
-const deleteTipConfirm = document.getElementById("deleteTipConfirm");
-
-
 /**
 * Initializes edit functionality for the provided edit buttons.
 * 
@@ -53,22 +46,3 @@ for (let button of deleteButtons) {
   });
 }
 
-
-
-/* TIP DELETE
- * Initializes deletion functionality for the provided delete buttons.
- * 
- * For each button in the `deleteButtons` collection:
- * - Retrieves the associated comment's ID upon click.
- * - Updates the `deleteConfirm` link's href to point to the 
- * deletion endpoint for the specific comment.
- * - Displays a confirmation modal (`deleteModal`) to prompt 
- * the user for confirmation before deletion.
- */
-for (let button of deleteTipButtons) {
-  button.addEventListener("click", (e) => {
-      let tipId = e.target.getAttribute("data-comment_id");
-      deleteConfirm.href = `delete_feedback/${commentId}`;
-      deleteModal.show();
-  });
-}

@@ -74,11 +74,10 @@
           <div id="comment{{ comment.id }}">
             {{ comment.tip_feedback | linebreaks }}
           </div>
-          <p>
-
+          <div>
             Feedback Score: {{ comment.score}}
-          
-          </p>
+          </div>
+          <br>
           {% if not comment.approved and comment.creator == user %}
           <p class="approval">
             This feedback is awaiting approval
@@ -99,7 +98,7 @@
     <!-- Creating New Comments -->
     <div class="col-md-4 card mb-4 mt-3">
         <div class="card-body">
-          {% if user.is_authenticated %}
+          {% if user.is_authenticated and post.creator != user %}
           <h3>Leave some feedback:</h3>
           <p>Posting as: {{ user.username }}</p>
           <form id="commentForm" method="post"
@@ -109,8 +108,10 @@
             <button id="submitButton" type="submit"
               class="btn btn-signup btn-lg">Submit</button>
           </form>
-          {% else %}
-          <p>Log in to leave a comment</p>
+          {% elif not user.is_authenticated %}
+          <p>Log in to leave some feedback</p>
+          {% elif post.creator == user %}
+          <p>(You cant leave feedback on your own tips! <br> - Please edit your tip.)</p>
           {% endif %}
         </div>
       </div>

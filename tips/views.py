@@ -109,7 +109,7 @@ def create_tip(request):
     Display to create a tip
     """
     if request.method == "POST":
-        tip_form = GardenTipsForm(request.POST, request.FILES)
+        tip_form = GardenTipsForm(request.POST)
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
             tip.creator = request.user
@@ -135,10 +135,10 @@ def tip_edit(request, slug):
         return redirect("home") 
 
     if request.method == "POST":
-        tip_form = GardenTipsForm(request.POST, request.FILES, instance=retrieved_tip)
+        tip_form = GardenTipsForm(request.POST, instance=retrieved_tip)
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
-            tip.approved = False
+            tip.status = 0
             tip_form.save()
             messages.success(request, "Your edited Garden Tip was Submitted for approval.")
             return redirect("home") 

@@ -9,6 +9,7 @@
       {% if user.is_authenticated %}
       <h3>Edit Garden Tip:</h3>
       <p>Editing Tip as: {{ user.username }}</p>
+
       <form id="tipForm" method="POST" enctype="multipart/form-data" style="margin-top: 1.3em;">
         {{ tip_form | crispy }}
         {% csrf_token %}
