@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import GardenTip, Feedback
 from .forms import FeedbackForm, GardenTipsForm
 from django.contrib.auth.decorators import login_required
+from django.utils.text import slugify
 
 class TipList(generic.ListView):
     """
@@ -109,11 +110,12 @@ def create_tip(request):
     Display to create a Garden Tip
     """
     if request.method == "POST":
-        tip_form = GardenTipsForm(request.POST)
+        tip_form = GardenTipsForm(request.POST, request.FILES)
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
             tip.creator = request.user
             tip.approved = False
+            tip.slug = slugify(tip.title)
             tip_form.save()
             messages.success(request, "Your Garden Tip was Submitted for approval.")
             return redirect("home") 
@@ -136,7 +138,7 @@ def tip_edit(request, slug):
         return redirect("home") 
 
     if request.method == "POST":
-        tip_form = GardenTipsForm(request.POST, instance=retrieved_tip)
+        tip_form = GardenTipsForm(request.POST, request.FILES, instance=retrieved_tip)
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
             tip.status = 0
