@@ -16,7 +16,20 @@ class TipAdmin(SummernoteModelAdmin):
     summernote_fields = ('garden_tip',)
 
 
+@admin.register(Feedback) 
+class FeedbackAdmin(SummernoteModelAdmin):
+    """
+    Lists fields for display in admin, fields for search,
+    field filters, fields to prepopulate and rich-text editor.
+    """
+
+    list_display = ('tip_feedback','approved','score', 'creator', 'post')
+    search_fields = ['score', 'tip_feedback']
+    list_filter = ('approved', 'created_on',)
+    #prepopulated_fields = ('post')
+    summernote_fields = ('tip_feedback',)
+
 # Register your models here.
 # admin.site.register(GardenTip) -- replaced by Summernote
-admin.site.register(Feedback)
+# admin.site.register(Feedback)
 # Line for each model

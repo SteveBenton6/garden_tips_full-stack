@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import GardenTip, Feedback
 from .forms import FeedbackForm, GardenTipsForm
+from django.contrib.auth.decorators import login_required
 
 class TipList(generic.ListView):
     """
@@ -51,7 +52,6 @@ def tips_detail(request, slug):
 
     comment_form = FeedbackForm()
 
-
     return render(
         request,
         "tips/tips_detail.html",
@@ -63,6 +63,7 @@ def tips_detail(request, slug):
         },
     )
 
+@login_required
 def feedback_edit(request, slug, comment_id):
     """
     Display to edit feedback item
@@ -79,18 +80,16 @@ def feedback_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.success(request, 'Comment Updated!')
-            """
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-            """
+            messages.success(request, 'Updated Feedback Submitted for Approval!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, 'Error updating feedback!')
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
+@login_required
 def feedback_delete(request, slug, comment_id):
     """
-    Display to delete feedback
+    Display to delete feedback item
     """
     queryset = GardenTip.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
@@ -98,15 +97,16 @@ def feedback_delete(request, slug, comment_id):
 
     if comment.creator == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, 'Feedback deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(request, messages.ERROR, 'You can only delete your own feedback!')
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
+@login_required
 def create_tip(request):
     """
-    Display to create a tip
+    Display to create a Garden Tip
     """
     if request.method == "POST":
         tip_form = GardenTipsForm(request.POST)
@@ -123,6 +123,7 @@ def create_tip(request):
         return render(request, "tips/create_tip.html", context)
 
     
+@login_required
 def tip_edit(request, slug):
     """
     Display to edit Garden Tip
@@ -150,6 +151,7 @@ def tip_edit(request, slug):
         }
         return render(request, "tips/edit_tip.html", context)
 
+@login_required
 def tip_delete(request, slug):
     """
     Display to delete Garden Tip
@@ -158,7 +160,7 @@ def tip_delete(request, slug):
     retrieved_tip = get_object_or_404(queryset, slug=slug)
 
     if not request.user == retrieved_tip.creator:
-        messages.error(request, "You cannot delete an article you did not create!")
+        messages.error(request, "You cannot delete a Tip you did not create!")
         return redirect("home") 
 
     if request.method == "POST":
