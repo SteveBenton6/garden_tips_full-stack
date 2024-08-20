@@ -15,7 +15,7 @@
       <form id="tipForm" method="POST" enctype="multipart/form-data" style="margin-top: 1.3em;">
         {{ tip_form | crispy }}
         {% csrf_token %}
-        <button id="submitTipButton" type="submit" class="btn btn-tip-delete">Confrim Delete Tip</button>
+        <button id="submitTipButton" type="submit" class="btn btn-tip-delete">Confirm Delete Tip</button>
       </form>
       <br>
       <button class="btn btn-tip-edit" onclick="location.href='{% url 'home' %}'">No, take me back to the Home Page</button>
