@@ -18,20 +18,6 @@ class TipList(generic.ListView):
 def tips_detail(request, slug):
     """
     Display an individual Garden Tip.
-
-    **Context**
-    ``post``
-        An instance of :model:`tips.`.
-    ``comments``
-        All approved comments related to the tip.
-    ``comment_count``
-        A count of approved feedback related to the post.
-    ``comment_form``
-        An instance of :form:`blog.CommentForm`
-    
-    **Template:**
-
-    :template:`tips/tips_detail.html`
     """
 
     queryset = GardenTip.objects.filter(status=1)
