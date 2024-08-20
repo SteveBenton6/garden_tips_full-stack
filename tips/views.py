@@ -71,6 +71,11 @@ def feedback_edit(request, slug, comment_id):
         else:
             messages.add_message(request, messages.ERROR, 'Error updating feedback!')
 
+    else:
+        form = FeedbackForm(instance=comment)
+        context = { "form": form, }
+        return render(request, 'tips/tips_detail.html', context)
+
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
 @login_required
@@ -104,7 +109,10 @@ def create_tip(request):
             tip.slug = slugify(tip.title)
             tip_form.save()
             messages.success(request, "Your Garden Tip was Submitted for approval.")
-            return redirect("home") 
+            return redirect("home")
+        else:
+            messages.error(request, "Your Garden Tip Title was not unique, please try again with a unique title.")
+            return redirect("create_tip")
     else:
         tip_form = GardenTipsForm()
         context = { "tip_form": tip_form,}
@@ -130,7 +138,11 @@ def tip_edit(request, slug):
             tip.status = 0
             tip_form.save()
             messages.success(request, "Your edited Garden Tip was Submitted for approval.")
-            return redirect("home") 
+            return redirect("home")
+        else:
+            messages.error(request, "Your Garden Tip Title was not unique, please try again with a unique title.")
+            return redirect("home")
+
     else:
         tip_form = GardenTipsForm(instance=retrieved_tip)
         context = {
