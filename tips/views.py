@@ -7,6 +7,7 @@ from .forms import FeedbackForm, GardenTipsForm
 from django.contrib.auth.decorators import login_required
 from django.utils.text import slugify
 
+
 class TipList(generic.ListView):
     """
     Display all Garden Tips
@@ -14,7 +15,8 @@ class TipList(generic.ListView):
     queryset = GardenTip.objects.filter(status=1)
     template_name = "tips/index.html"
     paginate_by = 6
-    
+
+
 def tips_detail(request, slug):
     """
     Display an individual Garden Tip.
@@ -33,9 +35,9 @@ def tips_detail(request, slug):
             comment.post = post
             comment.save()
             messages.add_message(
-            request, messages.SUCCESS,
-            'Feedback submitted and awaiting approval'
-        )
+                request, messages.SUCCESS,
+                'Feedback submitted and awaiting approval'
+            )
 
     comment_form = FeedbackForm()
 
@@ -49,6 +51,7 @@ def tips_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+
 
 @login_required
 def feedback_edit(request, slug, comment_id):
@@ -73,10 +76,11 @@ def feedback_edit(request, slug, comment_id):
 
     else:
         form = FeedbackForm(instance=comment)
-        context = { "form": form, }
+        context = {"form": form, }
         return render(request, 'tips/tips_detail.html', context)
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
+
 
 @login_required
 def feedback_delete(request, slug, comment_id):
@@ -94,6 +98,7 @@ def feedback_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own feedback!')
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
+
 
 @login_required
 def create_tip(request):
@@ -115,10 +120,10 @@ def create_tip(request):
             return redirect("create_tip")
     else:
         tip_form = GardenTipsForm()
-        context = { "tip_form": tip_form,}
+        context = {"tip_form": tip_form, }
         return render(request, "tips/create_tip.html", context)
 
-    
+
 @login_required
 def tip_edit(request, slug):
     """
@@ -129,7 +134,7 @@ def tip_edit(request, slug):
 
     if not request.user == retrieved_tip.creator:
         messages.error(request, "You cannot edit an article you did not create!")
-        return redirect("home") 
+        return redirect("home")
 
     if request.method == "POST":
         tip_form = GardenTipsForm(request.POST, request.FILES, instance=retrieved_tip)
@@ -151,6 +156,7 @@ def tip_edit(request, slug):
         }
         return render(request, "tips/edit_tip.html", context)
 
+
 @login_required
 def tip_delete(request, slug):
     """
@@ -161,7 +167,7 @@ def tip_delete(request, slug):
 
     if not request.user == retrieved_tip.creator:
         messages.error(request, "You cannot delete a Tip you did not create!")
-        return redirect("home") 
+        return redirect("home")
 
     if request.method == "POST":
         retrieved_tip.delete()

@@ -27,7 +27,6 @@ for (let button of editButtons) {
   });
 }
 
-
 /*
  * Initializes deletion functionality for the provided delete buttons.
  * 
@@ -38,6 +37,7 @@ for (let button of editButtons) {
  * - Displays a confirmation modal (`deleteModal`) to prompt 
  * the user for confirmation before deletion.
  */
+
 for (let button of deleteButtons) {
   button.addEventListener("click", (e) => {
       let commentId = e.target.getAttribute("data-comment_id");

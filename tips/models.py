@@ -3,14 +3,17 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 
 STATUS = ((0, "Draft"), (1, "Published"))
-SEASON = (("Spring", "SPRING"), ("Summer", "SUMMER"), ("Autumn", "AUTUMN"), ("Winter", "WINTER" ))
-REGION = (("Southern England", "SOUTHERN ENGLAND"), ("West of England", "WESTERN ENGLAND"), ("Wales", "WALES"),
-    ("North of England", "NORTEHRN ENGLAND"), ("Scotland", "SCOTLAND"), ("Northern Ireland", "NORTHERN IRELAND"),
-     ("Midlands", "MIDLANDS"), ("Outside the UK", "NON UK"))
-SCORE = ((" ", "Score 0 out of 5"), ("*", "Score 1 out of 5"), ("**", "Score 2 out of 5"), ("***", "Score 3 out of 5"),
-     ("****", "Score 4 out of 5"), ("*****", "Score 5 out of 5"))
+SEASON = (("Spring", "SPRING"), ("Summer", "SUMMER"),
+          ("Autumn", "AUTUMN"), ("Winter", "WINTER"))
+REGION = (("Southern England", "SOUTHERN ENGLAND"),
+          ("West of England", "WESTERN ENGLAND"),
+          ("Wales", "WALES"), ("North of England", "NORTEHRN ENGLAND"),
+          ("Scotland", "SCOTLAND"), ("Northern Ireland", "NORTHERN IRELAND"),
+          ("Midlands", "MIDLANDS"), ("Outside the UK", "NON UK"))
+SCORE = ((" ", "Score 0 out of 5"), ("*", "Score 1 out of 5"),
+         ("**", "Score 2 out of 5"), ("***", "Score 3 out of 5"),
+         ("****", "Score 4 out of 5"), ("*****", "Score 5 out of 5"))
 
-# Create your models here.
 
 class GardenTip(models.Model):
     """
@@ -19,9 +22,9 @@ class GardenTip(models.Model):
     """
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "tip_creator")
-    season = models.CharField(choices=SEASON, default="summer")
-    region = models.CharField(choices=REGION, default="SE")
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="tip_creator")
+    season = models.CharField(max_length=50, choices=SEASON, default="summer")
+    region = models.CharField(max_length=50, choices=REGION, default="SE")
     image = CloudinaryField('image', default='placeholder')
     garden_tip = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -35,16 +38,16 @@ class GardenTip(models.Model):
         return f"Tip: {self.title} | a tip by {self.creator}"
 
 
-
 class Feedback(models.Model):
     """
-    Stores a single Feedback entry related to the model:"auth.User" and model:"GardenTip".
+    Stores a single Feedback entry related to the model:"auth.User"
+    and model:"GardenTip".
 
     """
-    post = models.ForeignKey(GardenTip, on_delete=models.CASCADE, related_name = "feedback")
-    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name = "respondent")
+    post = models.ForeignKey(GardenTip, on_delete=models.CASCADE, related_name="feedback")
+    creator = models.ForeignKey(User, on_delete=models.CASCADE, related_name="respondent")
     tip_feedback = models.TextField()
-    score = models.CharField(choices=SCORE, default=" ")
+    score = models.CharField(max_length=20, choices=SCORE, default=" ")
     approved = models.BooleanField(default=False)
     created_on = models.DateTimeField(auto_now_add=True)
 

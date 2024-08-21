@@ -35,7 +35,6 @@ body {
 }
 
 .dark-bg {
-    /* background-color: #445261; */
     background-color: #074513;
 }
 
@@ -82,7 +81,6 @@ body {
 
 .masthead-text {
     background-color: #074513;
-    /* background-color: #445261; */
     color: white;
     position: relative;
 }
@@ -100,7 +98,6 @@ body {
     height: 100%;
     width: 150%;
     background: #074513; 
-    /* background: #445261; */
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);

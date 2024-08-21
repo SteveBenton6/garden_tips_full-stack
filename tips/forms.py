@@ -1,6 +1,7 @@
 from django import forms
 from .models import Feedback, GardenTip
 
+
 class FeedbackForm(forms.ModelForm):
     """
     Form class for registered users to give feedback on a post
@@ -11,7 +12,6 @@ class FeedbackForm(forms.ModelForm):
         """
         model = Feedback
         fields = ('tip_feedback', 'score',)
-
 
 
 class GardenTipsForm(forms.ModelForm):
