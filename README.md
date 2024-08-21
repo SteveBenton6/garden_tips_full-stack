@@ -39,83 +39,99 @@ An ideation process was undertaken to suggest and prioritise the user experience
         11. As a **user who has created Garden Tips**, I can **get a view showing just the garden tips I have submmitted** so that **I can go straight to my tips if I want to edit any or see the comments for any**.
         12. As a **site user**, I can **record my region as part of he registration process** so that **this is then provided to me, each time I create a Garden Tip**.
 
-        
-        
-        
-        
-        
-  
 ## Features 
 
 ### Features Completed
 
-- __Landing Page__
-  - The site consists of a single landing page which clearly identifies the purpose of the site, is responsive and allows the user to enter their location and get a Weather Forecast.  On first entering the site a large banner is shown in the midle of the screen to explain it.  This banner is removed once the user enters a location and requests a weather forecast.  It is then replaced with the Sun Clouds Rain scoring statement.
+- __Home Page__
+  - The site consists of a landing page with navigation menu at the top, is responsive and allows the user to look at the Garden Tip material submitted by registered users.  To submit (and subsequently edit) material and feedback you have to be a registered user.  On first entering the site the navigation menu includes buttons to Register and Login.  When the user has registered and logged in - these navigation buttons are replaced with one to Create a Garden Tip and on to Logout.  An About link Button is provided which provides an overview of the site and how to use it.
 
-![Header](./assets/suppdocs/siteOpenScreenshot.png)
+![Home Page](./doc-assets/features/HomePage2.png)
 
-- __Capture Search Location for Weather__
+- __Register__
 
-  - The site has a clearly marked input field for the user to enter the location that they want for the weather forecast.  A country pull down is also included, to help resolve any issues arising from identical location names in different countries.  At this stage only a limited number of countries have been added and future work is needed to increase the country coverage. It defaults to the UK.
+  - Clicking this button provides a Sign Up Screen.  Enter Username and Password (twice for validation) and optionally email.
 
-- __Capture First name for Sun Clouds Rain Game__
+  
+![Register and Login Pages](./doc-assets/features/RegisterLogin.png)
 
-  - The site has a clearly marked input field for the user to enter their first name.  Which is then used as part of the Sun Clouds Rain game to tailor the score messaging.
+- __Login__
 
-- __Submit Search Location for Weather Forecast__
+  - After Registering, clicking the Login button provides a login screen to enter Username and password.  The revised Homepage is Now Shown with the Create Tip and Logout Buttons in the top Menu.
 
-  - The site has a clearly marked search (submit) button - to submit the location and get a Weather Forecast.  This button also submits the first name for the first round of the Sun Clouds Rain game.
-  - When this button is clicked - the orange information banner is also removed from the screen and replaced with the scoring statement for the Sun Clouds Rain Game.
+![Logged In Home Page ](./doc-assets/features/LoggedInHome%20Page.png)
 
-- __Confirmation of Location__
+- __About__
 
-  - Todays weather togther with confirmation of the Location is displayed after search (submit) is clicked.
+  - Clicking About - goes to the About Page, giving a Description of the Site and how to use it.
 
-![Confirmation of Location](./assets/suppdocs/enterInfoScreenshot.png)
+  ![Logged In Home Page ](./doc-assets/features/About.png)
 
-- __Today and 5 Days of Weather__
+- __Click Garden Tip Item__
 
-  - Todays weather (Temperature in degrees celcius and the Cloud/Rain/Sun symbol) is shown at the top.
-  - The weather for the next five days is shown below todays weather.
+  - Clicking the Title of a specific Garden Tip will show that Tip in More Detail.  Including providing the option to submit scored Feedback.
 
-![Display The Weather](./assets/suppdocs/showWeatherScreenshot.png)
+  ![Logged In Home Page ](./doc-assets/features/GardenTip.png)
 
-- __Sun Clouds Rain Game - Computer Choice__ 
+- __Logout__
 
-  - The computer randomnly selects some weather to play against the user in the Sun Clouds Rain Game.  This is displayed to the right, after the VS (versus) symbol.
+  - Clicking Logout will provide a screen to enable the user to log out of the system.
 
-- __Sun Clouds Rain Game Score__ 
+- __Leave and Edit Feedback__
 
-  - The result of the Sun Cluds Rain game is shown under each days weather.
-  - Green tick - user won.
-  - Red Cross - computer won.
-  - Blue Equals - draw.
-  - These results are correlaterd into an overal winners statement at the bottom tailored with the name the user entered.
+  - A logged in user is able to submit feeedback on a tip (not for own Garden Tip), including a score rating.
+  - Tips are submitted for approbval By Admin.
+  - When Feedback is approved, it is displayed, including the options to Edit or Delete.
+  - When editing - the previous comment is placed in the Leave some Feedback box for editing.
+  - When the delete buttion is pushed - a check you want to delete form is provided to ensure feedback is not accidently deleted.
 
-- __Sun Clouds Rain Rules__
+![View and Edit Feedback](./doc-assets/features/LeaveFeedback.png)
 
-  - A How to play set of rules is provided and when clicked the rules pop up in a modal. They can be cancelled and the user returns to the main screen.
+- __Create a Garden Tip__ 
 
-![Game Rules](./assets/suppdocs/showRulesScreenshotpng.png)
+  - After clicking the Create Tip buttion in the top navigation menu - the user is provided with a form to submit their Graden Tip.
+  - The Title has to be unique - if it isnlt - a warning is provided and the user has to start agin creating the Garden Tip.
+  - The Garden Tip is submitted to admin for approval before being shown on the site.
 
-- __New game__
+![Create Garden Tip](./doc-assets/features/CreateTip.png)
 
-  - The new game button, resets the Sun Clouds Rain Game.  The computer randomnly selects some new weather for the Sun Clouds Rain game.  The user can enter a new weather forecast location  - to get new weather and play the game again.
+- __Edit a Graden Tip__ 
 
-![New Game](./assets/suppdocs/showNewGameScreenshot.png)
+  - The creator of a Garden Tip is provided with an Edit and Delete button for the tip.
+  - After clicking the Edit button, the user is provided with a form, pre-populated with the previously entered info.
+
+![Create Garden Tip](./doc-assets/features/EditTip.png)
+
+- __Delete A Garden Tip__
+
+  - After clicking the Delete button, the user is provided with a choie of confirming delete, or returning to the Homepage.  To avoid accidental deletion.
+
+![Game Rules](./doc-assets/features/DeleteTip.png)
+
+- __Admin Approval of new and edited Feedback and Garden Tips__
+
+  - In the Admin view - a view of both Garden Tips and Feedback is provided.
+  - This allows the admin to create draft new or edited Feedback and Garden Tips
+  - It also provides a clear view on what is not approved and so guides Admin to the right material to review and approve.
+
+![New Game](./doc-assets/features/AdminView.png)
+
 
 ### Features Left to Implement
 
-- Countries: an initial 5 countris have been added for the country validation activity.
-	- This list to be extnded to cover a wider range of countries.
-  - Investigate better use of the existing API to facilitate this.
+- Submit Garden Tips: 
+	- Add the provision of a form for users to submit questions to the Garden Tips team.
+  - Record Email of the requester - so a response Can Be Provided
 
-- Display of Weather Location on a Map
-	- It would be good to show a Google Map (or similar) of the location entered for the weather to help validate the weather is for the location expected.
-  - Investigate how the goggle maps API could be used to provide this.
+- Register the users Region
+	- Request and record the users Region as part of the registration process.
+  - Use this when a user submits a Garden Tip.  And maybe show with the username.
+  - Remove from the Create Garden Tip Form and process.
 
-- Multiple round scoring
-  - To encourage repeated use of the site, add an ongoing score capability that extemds the scoring across multiple rounds.
+- User Garden Tip View
+	- Add a button in the Navigation Menu - Show All Garden Tips
+  - Display all the Garden Tips raised by the logged in User.
+  - Speed up finding and editing..
 
 ## Design
 
@@ -151,16 +167,16 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
         ![Game Rules Wireframe](./assets/suppdocs/gamerules.png)
 
+-   ### Database Model Schema
 
-## Project Management
+## Agile Project Management
 
 - An ideation process was undertaken to suggest and prioritise the user experience for the site.  From this user stories were generated, prioritised (including establishing a Minimum Viable Product) and managed using a Kanban board on GitHub.
 
 - Each user story:
   - Included Acceptance Criteria and Tasks.
   - Was tagged with its MoSCoW priority rating.
-  - Was assigned an owner.
-  - Was managed by the owner across to Done
+  - Was regularly managed for completion and moved across the Kanban board.
 
 - The Kanban board was regulalry reviewed bu the team.
 
@@ -168,7 +184,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
       [Link to Kanban Board](https://https://github.com/users/SteveBenton6/projects/5)
 
-- The Weather MVP and Sun Cloud Rain Game MVP user stories were completed.  In addition - some of the Weather and some of the Sun Cloud Rain Game enhancement user stories were completed.
+- The MVP Was completed.  The additional items for future development are shown in the first Column.
 
 ## Technologies Used
 
