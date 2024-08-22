@@ -44,7 +44,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 ### Features Completed
 
 - __Home Page__
-  - The site consists of a landing page with navigation menu at the top, is responsive and allows the user to look at the Garden Tip material submitted by registered users.  To submit (and subsequently edit) material and feedback you have to be a registered user.  On first entering the site the navigation menu includes buttons to Register and Login.  When the user has registered and logged in - these navigation buttons are replaced with one to Create a Garden Tip and on to Logout.  An About link Button is provided which provides an overview of the site and how to use it.
+  - The site consists of a landing page with navigation menu at the top, is responsive and allows the user to look at the Garden Tip material submitted by registered users.  To submit (and subsequently edit) material and feedback you have to be a registered user.  On first entering the site the navigation menu includes buttons to Register and Login.  When the user has registered and logged in - these navigation buttons are replaced with one to Create a Garden Tip and one to Logout.  An About link Button is provided which links to an overview description of the site and how to use it.
 
 ![Home Page](./doc-assets/features/HomePage2.png)
 
@@ -57,7 +57,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 - __Login__
 
-  - After Registering, clicking the Login button provides a login screen to enter Username and password.  The revised Homepage is Now Shown with the Create Tip and Logout Buttons in the top Menu.
+  - After Registering, clicking the Login button provides a login screen to enter Username and password.  The revised Homepage is now shown with the Create Tip and Logout Buttons in the top Menu.
 
 ![Logged In Home Page ](./doc-assets/features/LoggedInHome%20Page.png)
 
@@ -80,7 +80,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 - __Leave and Edit Feedback__
 
   - A logged in user is able to submit feeedback on a tip (not for own Garden Tip), including a score rating.
-  - Tips are submitted for approbval By Admin.
+  - Tips are submitted for approval By Admin.
   - When Feedback is approved, it is displayed, including the options to Edit or Delete.
   - When editing - the previous comment is placed in the Leave some Feedback box for editing.
   - When the delete buttion is pushed - a check you want to delete form is provided to ensure feedback is not accidently deleted.
@@ -104,7 +104,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 - __Delete A Garden Tip__
 
-  - After clicking the Delete button, the user is provided with a choie of confirming delete, or returning to the Homepage.  To avoid accidental deletion.
+  - After clicking the Delete button, the user is provided with a choice of confirming delete, or returning to the Homepage.  To avoid accidental deletion.
 
 ![Delete Garden Tip](./doc-assets/features/DeleteTip.png)
 
@@ -119,9 +119,10 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ### Features Left to Implement
 
-- Submit Garden Tips: 
+- Submit Garden Questions: 
 	- Add the provision of a form for users to submit questions to the Garden Tips team.
   - Record Email of the requester - so a response Can Be Provided
+  - Maybe a mechanism can be provided to request expereince gardeners to create a related Garden Tip.
 
 - Register the users Region
 	- Request and record the users Region as part of the registration process.
@@ -131,18 +132,18 @@ An ideation process was undertaken to suggest and prioritise the user experience
 - User Garden Tip View
 	- Add a button in the Navigation Menu - Show All Garden Tips
   - Display all the Garden Tips raised by the logged in User.
-  - Speed up finding and editing..
+  - Speed up finding and editing.
 
 ## Design
 
--   ### Two Page Core Site
+-   ### "Three" Page Core Site
     -  The core of the site is based on the Home Page, which contains the active Garden Tip infomration for users, an About page which describes the purpose of the site and a detailed individual tip page reached by clicking a specific Garden Tip title.
 
 -   ### Action Screens
     -  Clicking links brings up other views - e.g. User Registration, User Login, Create New Garden Tip, Edit New Garden Tip, Delete Garden Tip, Logout, etc.  On completion of these activites the user is typically returned to the Home page. 
 
 -   ### Colour Scheme
-    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar.  A "Hunter Green" - #074507 was used to complement this on the site.
+    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar. "Hunter Green" - #074507 was used to complement this across the site.
 
     [Hunter Green](https://htmlcolorcodes.com/colors/hunter-green/)
     
@@ -151,16 +152,16 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 -   ### Wireframes
 
-    -   #### Site Landing Wireframe
+    -   #### Home Page Wireframes
 
         ![Home Page Wireframes](./doc-assets/Wireframes/wireframe1.png)
 
-    -   #### Weather and Game Wireframe
+    -   #### Tip create/edit Wireframes
 
         ![Garden Tip Wireframes](./doc-assets/Wireframes/wireframe2.png)
 
 -   ### Database Model Schema
-    - Two models have been used.  One for the Garden Tips and One for the Feedback
+    - Two models have been used.  One for the Garden Tips and One for the Feedback.  These were both also used to create forms to enable the CRUD activity.
 
   ![Data Models](./doc-assets/datamodel/Models.png)   
 
@@ -191,7 +192,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
       [Link to Kanban Board](https://github.com/users/SteveBenton6/projects/5)
 
-- The MVP Was completed.  The additional items for future development are shown in the Future Features Column.
+- The MVP Was completed.  The additional items for future development are shown in the Future Features Column of the Kanban board.
 
 ## Technologies Used
 
@@ -209,8 +210,9 @@ An ideation process was undertaken to suggest and prioritise the user experience
 -   [Git:](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
 -   [GitHub:](https://github.com/) is used as the respository for the projects code after being pushed from Git.
 -   [Balsamiq:](https://balsamiq.com/) was used to create the wireframes during the design process.
--   [bootstrap 5.3:](https://getbootstrap.com/) was the framework used to create a responsive page and the rules modal.
--   [favicon:](https://favicon.io/) was used for creating website page tab icon.
+-   [bootstrap 5.3:](https://getbootstrap.com/) was the framework used to create a responsive page, navigation menu and tip cards.
+-   [Heroku:](https://www.heroku.com/) was used to host the application for public access.
+-   [Cloudinary:](https://cloudinary.com/) was used to host the images used by the application, in the cloud.
 -   [django:](https://www.djangoproject.com/) was the Framework used to build the integrated frontend/backend web application.
 
   - django applications installed:
@@ -231,8 +233,8 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ### Unfixed Bugs
 
-- When a piece of Feedback is edited - the existing Feedback score is not presented in the form (athough cleaerly visible on the page).  This view to be further enhanced to include the urrent feedback score in the edit form.
-- The Garden Tip Image Sizes alter the Home Page view.  Additional styling code to be developed to manage the image sizes (and whether Portrait r Landscape) displayed in the Home Page view of Grsening Tips.
+- When a piece of Feedback is edited - the existing Feedback score is not presented in the form (athough clearly visible on the page).  This view to be further enhanced to include the current feedback score in the edit form.
+- The Garden Tip image sizes alter the Home Page view.  Additional styling code to be developed to manage the image sizes (and whether Portrait or Landscape) displayed in the Home Page view of Gardening Tips.
 
 
 ## Deployment
@@ -243,7 +245,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - Secret key to run the application
   - Secret Key to interact with the SQL database
   - Secret Key to interact with the Cloudinary image storage
-These 3 keys were stored in an env.py file, which was included in gitignore and so not uploaded to GitBub and so not revealed.
+- These three keys were stored in an env.py file, which was included in gitignore and so not uploaded to GitBub and so not revealed "publicly".
 
 - A Garden Tips project was set up in the Heroku application.
   - The three secret environemntal settings, detailed above, were recorded in Heroku.
@@ -257,8 +259,8 @@ The live link can be found here - https://garden-tips-eaf37b541ca8.herokuapp.com
 
 ### Content 
 
-- The project base was influneced by the LMS Blog Project.
-- Additional model varianbles, styling, views, urls and HTML were added to provide the full requested CRUD capability.  Garden Tips can be Created, Edited and Deleted with controls in to limit actions to the relevant registered users.  All new and edited Garden Tip and Feedback material goes to admin for approval to ensure no inappropriate material is posted.  The admin views have been enhanced to give admin better visibility on what needs to be reviewed/approved.
+- The project base was influenced by the LMS Blog Project.
+- Additional model variables, styling, views, urls and HTML were added to provide the full requested CRUD capability.  Garden Tips can be Created, Edited and Deleted with controls in to limit actions to the relevant registered users.  All new and edited Garden Tip and Feedback material goes to admin for approval to ensure no inappropriate material is posted.  The admin views have been enhanced to give admin better visibility on what needs to be reviewed/approved.
 
 ### Media
 
