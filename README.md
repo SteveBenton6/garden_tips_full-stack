@@ -1,6 +1,6 @@
 # Garden Tips
 
-Garden Tips is a site that is targetted towards gardeners - both experienced and less experienced.  Experienced gardeners can post garden tips - including an image, with some context on their location and season to help understand the relevance.  These can be edited and deleted by the creator.  Less experienced gardeners can provide feedback on the tips, including a score.  This feedback can be edited by the feedback provider.
+Garden Tips is a site that is targetted towards gardeners - both experienced and less experienced.  Experienced gardeners can post garden tips - including an image, with some context on their location and season to help understand the relevance of the tip.  These can be edited and deleted by the creator.  Less experienced gardeners can provide feedback on the tips, including a score.  This feedback can be edited by the feedback provider.
 
 All tip and feedback content (new and updated) is reviewed by admin before publishing to prevent inappropriate content being published.
 
@@ -90,7 +90,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 - __Create a Garden Tip__ 
 
   - After clicking the Create Tip buttion in the top navigation menu - the user is provided with a form to submit their Graden Tip.
-  - The Title has to be unique - if it isnlt - a warning is provided and the user has to start agin creating the Garden Tip.
+  - The Title has to be unique - if it is not unique - a warning message is provided and the user starts again creating the Garden Tip.
   - The Garden Tip is submitted to admin for approval before being shown on the site.
 
 ![Create Garden Tip](./doc-assets/features/CreateTip.png)
@@ -100,13 +100,13 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - The creator of a Garden Tip is provided with an Edit and Delete button for the tip.
   - After clicking the Edit button, the user is provided with a form, pre-populated with the previously entered info.
 
-![Create Garden Tip](./doc-assets/features/EditTip.png)
+![Edit Garden Tip](./doc-assets/features/EditTip.png)
 
 - __Delete A Garden Tip__
 
   - After clicking the Delete button, the user is provided with a choie of confirming delete, or returning to the Homepage.  To avoid accidental deletion.
 
-![Game Rules](./doc-assets/features/DeleteTip.png)
+![Delete Garden Tip](./doc-assets/features/DeleteTip.png)
 
 - __Admin Approval of new and edited Feedback and Garden Tips__
 
@@ -114,7 +114,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - This allows the admin to create draft new or edited Feedback and Garden Tips
   - It also provides a clear view on what is not approved and so guides Admin to the right material to review and approve.
 
-![New Game](./doc-assets/features/AdminView.png)
+![Admin View](./doc-assets/features/AdminView.png)
 
 
 ### Features Left to Implement
@@ -135,8 +135,11 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ## Design
 
--   ### Single Page
-    -  We decided that the site should be based on using a single page. Using JavaScript to dynamically change the display based on user entry.  A bootstrap modal was selected to display the game rules.
+-   ### Two Page Core Site
+    -  The core of the site is based on the Home Page, which contains the active Garden Tip infomration for users, an About page which describes the purpose of the site and a detailed individual tip page reached by clicking a Graden Tip title.
+
+-   ### Action Screens
+    -  Clicking links brings up other views - e.g. User Registration, User Login, Create New Garden Tip, Edit New Garden Tip, Delete Garden Tip, Logout, etc.  On completion of these activites the user us typically returned to the Home page. 
 
 -   ### Colour Scheme
     -  We decided that blue colours (clouds) mixed with bright (weather) colours would work for our website. Including blue was important to underpin the link to weather. The colours picked were generated using the website [Coolors](https://coolors.co/)
@@ -147,11 +150,6 @@ An ideation process was undertaken to suggest and prioritise the user experience
     - Google Fonts were used to import Caveat and Maragrine fonts into styles.css.  These were chosen as they looked informal and related to the use of the site by children.
  
     ![Font Pairing](./assets/suppdocs/googlefonts.png)   
-
--   ### Logo/Icon
-    - The logo design incorporates a smiling sun character image. This to reflect weather, the focus on younger users and creating fun from the game. The logo was generated using [bing copilot designer](https://www.bing.com/chat?q=Microsoft+Copilot&FORM=hpcodx)
- 
-	![Logo](assets/favicon/android-chrome-192x192.png)
 
 -   ### Wireframes
 
@@ -168,6 +166,9 @@ An ideation process was undertaken to suggest and prioritise the user experience
         ![Game Rules Wireframe](./assets/suppdocs/gamerules.png)
 
 -   ### Database Model Schema
+    - Two models have been used.  One for the Garden Tips and One for the Feedback
+
+  ![Data Models](./doc-assets/datamodel/Models.png)   
 
 ## Agile Project Management
 
@@ -178,13 +179,25 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - Was tagged with its MoSCoW priority rating.
   - Was regularly managed for completion and moved across the Kanban board.
 
-- The Kanban board was regulalry reviewed bu the team.
+- User Story - Completed - MVP
+
+ ![Data Models](./doc-assets/userStories/userstory1.png)
+
+- User Story - Future Feature
+
+ ![Data Models](./doc-assets/userStories/userstory2.png)
+
+- User Story - Kanban Board
+
+ ![Data Models](./doc-assets/userStories/kanban.png)   
+
+- The Kanban board was reviewed and updated daily.
 
   -   #### Kanban Board
 
-      [Link to Kanban Board](https://https://github.com/users/SteveBenton6/projects/5)
+      [Link to Kanban Board](https://github.com/users/SteveBenton6/projects/5)
 
-- The MVP Was completed.  The additional items for future development are shown in the first Column.
+- The MVP Was completed.  The additional items for future development are shown in the Future Features Column.
 
 ## Technologies Used
 
