@@ -136,34 +136,28 @@ An ideation process was undertaken to suggest and prioritise the user experience
 ## Design
 
 -   ### Two Page Core Site
-    -  The core of the site is based on the Home Page, which contains the active Garden Tip infomration for users, an About page which describes the purpose of the site and a detailed individual tip page reached by clicking a Graden Tip title.
+    -  The core of the site is based on the Home Page, which contains the active Garden Tip infomration for users, an About page which describes the purpose of the site and a detailed individual tip page reached by clicking a specific Garden Tip title.
 
 -   ### Action Screens
-    -  Clicking links brings up other views - e.g. User Registration, User Login, Create New Garden Tip, Edit New Garden Tip, Delete Garden Tip, Logout, etc.  On completion of these activites the user us typically returned to the Home page. 
+    -  Clicking links brings up other views - e.g. User Registration, User Login, Create New Garden Tip, Edit New Garden Tip, Delete Garden Tip, Logout, etc.  On completion of these activites the user is typically returned to the Home page. 
 
 -   ### Colour Scheme
-    -  We decided that blue colours (clouds) mixed with bright (weather) colours would work for our website. Including blue was important to underpin the link to weather. The colours picked were generated using the website [Coolors](https://coolors.co/)
+    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar.  A "Hunter Green" - #074507 was used to complement this on the site.
 
-        ![Colour Palette](./assets/suppdocs/sunCloudsRainColourPalette.png)
-
+    [Hunter Green](https://htmlcolorcodes.com/colors/hunter-green/)
+    
 -   ### Typography
-    - Google Fonts were used to import Caveat and Maragrine fonts into styles.css.  These were chosen as they looked informal and related to the use of the site by children.
- 
-    ![Font Pairing](./assets/suppdocs/googlefonts.png)   
+    - Google Fonts were used to import Roboto and Lato fonts into styles.css.  These look professional but informal for the Garden blog theme.
 
 -   ### Wireframes
 
     -   #### Site Landing Wireframe
 
-        ![Site Landing Wireframe](./assets/suppdocs/initialwireframe.png)
+        ![Home Page Wireframes](./doc-assets/Wireframes/wireframe1.png)
 
     -   #### Weather and Game Wireframe
 
-        ![Weather and Game Wireframe](./assets/suppdocs/gamewireframe.png)
-
-    -   #### Game Rules Wireframe
-
-        ![Game Rules Wireframe](./assets/suppdocs/gamerules.png)
+        ![Garden Tip Wireframes](./doc-assets/Wireframes/wireframe2.png)
 
 -   ### Database Model Schema
     - Two models have been used.  One for the Garden Tips and One for the Feedback
@@ -210,14 +204,18 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ### Frameworks, Libraries & Programs Used
 
--   [Google Fonts:](https://fonts.google.com/) was used to import the 'Margarine' and 'Caveat' fonts into the style.css file which are used across the project site page.
+-   [Google Fonts:](https://fonts.google.com/) was used to import the 'Roboto' and 'Lato' fonts into the style.css file which are used across the project site page.
 -   [Font Awesome:](https://fontawesome.com/) was used to add icons for aesthetic and UX purposes.
 -   [Git:](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
 -   [GitHub:](https://github.com/) is used as the respository for the projects code after being pushed from Git.
 -   [Balsamiq:](https://balsamiq.com/) was used to create the wireframes during the design process.
 -   [bootstrap 5.3:](https://getbootstrap.com/) was the framework used to create a responsive page and the rules modal.
 -   [favicon:](https://favicon.io/) was used for creating website page tab icon.
-    
+-   [django:](https://www.djangoproject.com/) was the Framework used to build the integrated frontend/backend web application.
+
+  - django applications installed:
+
+     ![Data Models](./doc-assets/technical/djangoapps.png)
 
 ## Testing 
 
@@ -233,30 +231,36 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ### Unfixed Bugs
 
-- Some location country combinations were allowed when they shoudn't have been.  This needs a deeper evaluation of the API interface and related JS code.
+- When a piece of Feedback is edited - the existing Feedback score is not presented in the form (athough cleaerly visible on the page).  This view to be further enhanced to include the urrent feedback score in the edit form.
+- The Garden Tip Image Sizes alter the Home Page view.  Additional styling code to be developed to manage the image sizes (and whether Portrait r Landscape) displayed in the Home Page view of Grsening Tips.
+
 
 ## Deployment
 
-- The site was deployed to GitHub pages. The steps to deploy are as follows: 
-  - In the GitHub repository, navigate to the Settings tab
-  - Click pages on the left side
-  - In the branch section, use the drop down menu to select the main branch
-  - Click save, and then wait for the deployment to be generated
-  - Click visit site button at top of settings
+- The site was edited in GitPod, with Git used to update the GitHub repository page with the latest version of the code.
+- The Project required an SQL database and a Cloudinary account for storage of the project images.  These were set up.
+- The project required three environmental settings to work that needed to remain confidential:
+  - Secret key to run the application
+  - Secret Key to interact with the SQL database
+  - Secret Key to interact with the Cloudinary image storage
+These 3 keys were stored in an env.py file, which was included in gitignore and so not uploaded to GitBub and so not revealed.
 
-The live link can be found here - https://suba-suresh.github.io/weather-web-app/
+- A Garden Tips project was set up in the Heroku application.
+  - The three secret environemntal settings, detailed above, were recorded in Heroku.
+  - Heroku was set to use the repository code in GitHub.
+  - Before final deployment in Heroku - the settings.py value in the code was set to DEBUG = False (with git used to get this onto GitHub).
+  - The project was deployed in Heroku.
 
+The live link can be found here - https://garden-tips-eaf37b541ca8.herokuapp.com/
 
 ## Credits 
 
 ### Content 
 
-- The layout was influenced by the following code institute project:
-	- [SME Weather API](https://github.com/kevin-ci/2404-BERKSB-APIs)
-- The OpenWeatherMap API was used to generate the current and forecast weather, together with generating the cloud/sun/rain weather images for the forecast.
+- The project base was influneced by the LMS Blog Project.
+- Additional model varianbles, styling, views, urls and HTML were added to provide the full requested CRUD capability.  Garden Tips can be Created, Edited and Deleted with controls in to limit actions to the relevant registered users.  All new and edited Garden Tip and Feedback material goes to admin for approval to ensure no inappropriate material is posted.  The admin views have been enhanced to give admin better visibility on what needs to be reviewed/approved.
 
 ### Media
 
+- All media images are my own.
 - The fonts used were imported from [Google Fonts](https://fonts.google.com/)
-- The Weather images were used from the [OpenWeatherMap API](https://openweathermap.org/)
-- The ? and scoring symbols were used from [FontAwesome](https://fontawesome.com/)
