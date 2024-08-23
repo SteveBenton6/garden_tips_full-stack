@@ -27,8 +27,8 @@ An ideation process was undertaken to suggest and prioritise the user experience
         1. As a **site user**, I can **see the site with clear navigation** so that **I can register for and use the site**.
         2. As a **site user**, I can **register an account** so that **I can submit a Garden Tip or give Feedback on another Garden Tip**.
         3. As a **site user**, I can **click on a Garden Tip** so that **I can read the full text and article detail**.
-        4. As a **site user / Admin**, I can **view Feedback in an individual Garden Tip** so that **I can read the conversation**.
-        5. As a **site user / Admin**, I can **leave feedback, inlcuding a score on a Garden Tip** so that **I can be involved in the conversation**.
+        4. As a **site user / Admin**, I can **view Feedback on an individual Garden Tip** so that **I can read the conversation**.
+        5. As a **site user / Admin**, I can **leave feedback, including a score on a Garden Tip** so that **I can be involved in the conversation**.
         6. As a **site user / Admin**, I can **modify or delete my feedback on a Garden Tip** so that **I can be involved in the conversation**.
         7. As a **site Admin**, I can **create draft Garden Tips** so that **I can finish writing the content later**.
         8. As a **site user**, I can **create, modify or delete my Garden Tip** so that **I can give a current view**.
@@ -40,7 +40,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
         11. As a **user who has created Garden Tips**, I can **get a view showing just the garden tips I have submmitted** so that **I can go straight to my tips if I want to edit any or see the comments for any**.
         12. As a **site user**, I can **record my region as part of he registration process** so that **this is then provided to me, each time I create a Garden Tip**.
 
-        #### Garden User Testing Feedback:
+        #### Garden User Testing Enhancement Feedback:
         User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, the could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
 
 
@@ -93,14 +93,14 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - Tips are submitted for approval By Admin.
   - When Feedback is approved, it is displayed, including the options to Edit or Delete.
   - When editing - the previous comment is placed in the Leave some Feedback box for editing.
-  - When the delete buttion is pushed - a check you want to delete form is provided to ensure feedback is not accidently deleted.
+  - When the delete button is clicked - a check you want to delete form is provided to ensure feedback is not accidently deleted.
 
 ![View and Edit Feedback](./doc-assets/features/LeaveFeedback.png)
 
 
 - __Create a Garden Tip__ 
 
-  - After clicking the Create Tip buttion in the top navigation menu - the user is provided with a form to submit their Graden Tip.
+  - After clicking the Create Tip buttion in the top navigation menu - the user is provided with a form to submit their Garden Tip.
   - The Title has to be unique - if it is not unique - a warning message is provided and the user starts again creating the Garden Tip.
   - The Garden Tip is submitted to admin for approval before being shown on the site.
 
@@ -109,7 +109,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 - __Edit a Graden Tip__ 
 
-  - The creator of a Garden Tip is provided with an Edit and Delete button for the tip.
+  - The creator of a Garden Tip is provided with Edit and Delete buttons for the tip.
   - After clicking the Edit button, the user is provided with a form, pre-populated with the previously entered info.
 
 ![Edit Garden Tip](./doc-assets/features/EditTip.png)
@@ -135,8 +135,8 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 - Submit Garden Questions: 
 	- Add the provision of a form for users to submit questions to the Garden Tips team.
-  - Record Email of the requester - so a response Can Be Provided
-  - Maybe a mechanism can be provided to request expereince gardeners to create a related Garden Tip.
+  - Record Email of the requester - so a response can be provided
+  - Maybe a mechanism can be provided to request experienced gardeners to create a related Garden Tip.
 
 - Register the users Region
 	- Request and record the users Region as part of the registration process.
@@ -157,13 +157,13 @@ An ideation process was undertaken to suggest and prioritise the user experience
 ## Design
 
 -   ### "Three" Page Core Site
-    -  The core of the site is based on the Home Page, which contains the active Garden Tip infomration for users, an About page which describes the purpose of the site and a detailed individual tip page reached by clicking a specific Garden Tip title.
+    -  The core of the site is based on the Home Page, which contains the active Garden Tip information for users, an About page which describes the purpose of the site and a detailed individual tip page reached by clicking a specific Garden Tip title.
 
 -   ### Action Screens
     -  Clicking links brings up other views - e.g. User Registration, User Login, Create New Garden Tip, Edit New Garden Tip, Delete Garden Tip, Logout, etc.  On completion of these activites the user is typically returned to the Home page. 
 
 -   ### Colour Scheme
-    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar. "Hunter Green" - #074507 was used to complement this across the site.  This contrasted well with a white background and provides a simple style to read nd use.
+    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar. "Hunter Green" - #074507 was used to complement this across the site.  This contrasted well with a white background and provides a simple style to read and use.
 
     [Hunter Green](https://htmlcolorcodes.com/colors/hunter-green/)
     
@@ -188,12 +188,13 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ## Agile Project Management
 
-- An ideation process was undertaken to suggest and prioritise the user experience for the site.  From this user stories were generated, prioritised (including establishing a Minimum Viable Product) and managed using a Kanban board on GitHub.
+- An ideation process was undertaken to suggest and prioritise the user experience for the site.  From this user stories were generated, prioritised (including establishing a Minimum Viable Product) and managed using a Kanban board on GitHub.  The priority user stories (Must Have and Should Have) were requitred to deliver the MVP (Minimum Viable Product).
 
 - Each user story:
   - Included Acceptance Criteria and Tasks.
   - Was tagged with its MoSCoW priority rating.
   - Was regularly managed for completion and moved across the Kanban board.
+  - Was moved across the Kanban board from Ready to In Progress to In Review to Done as work progressed.
 
 - User Story - Completed - MVP
 
@@ -239,6 +240,8 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
   - django applications installed:
 
+  These were recorded in the requirements.txt file - so that Heroku knew what to install and also that they could be installed with a single command in GitPod if required.
+
      ![Data Models](./doc-assets/technical/djangoapps.png)
 
 
@@ -246,11 +249,18 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ### Functional Testing
 
-The site was functionally tested to see that all the capabilities intended worked.  Initially this was done across multiple browsers and devices to test access and navidation.  The remaining teste were done for a logged in user on Chrome.
+The site was functionally tested to see that all the capabilities intended worked.  Initially this was done across multiple browsers and devices to test access, responsiveness and navigation.  The remaining tests were done for a logged in user on Chrome.
 
 ![Functional Testing - 1](./doc-assets/testing/FuncTest1.png)
 
 ![Functional Testing - 2](./doc-assets/testing/FuncTest2.png)
+
+### Responsiveness Testing
+
+The functional testing included trying the site out on a range of devices.  No obvious responsiveness issues were identified, over and above the screen size issue created from the image sizes in the cards (detailed in Unfixed Bugs).  In addition the Chrome Developer Tools were used to show the responsiveness of the home page.
+
+
+![Responsiveness Testing](./doc-assets/testing/Responsiveness.png)
 
 ### Validator Testing 
 
@@ -270,16 +280,21 @@ The site was functionally tested to see that all the capabilities intended worke
 ![JavaScript Testing](./doc-assets/testing/JavascriptTesting.png)
 
 - Python
-  - The major files were tested with no errors, except a few "Line Too Long" warnings were received using the [CI Python Linter](https://pep8ci.herokuapp.com/)
+  - The major files were tested with no errors, except a few "Line Too Long" warnings were received using the [CI Python Linter](https://pep8ci.herokuapp.com/).  "autopep8" has been installed as an extension in GitPod to help remove the Line Too Long issues without impcating code performance.
  
 ![Python Testing 1](./doc-assets/testing/PythonTesting1.png) 
 ![Python Testing 2](./doc-assets/testing/PythonTesting2.png) 
 
 - Lighthouse Testing
-  - In Chrome Dev Tools the Lighthouse test was run.  Performance was likey impacted from the rendering of multiple images.
+  - In Chrome Dev Tools the Lighthouse test was run.  Performance was likely impacted from the rendering of multiple images.
  
 ![Lighthouse Testing](./doc-assets/testing/PerfTest.png) 
 
+### Fixed Bugs
+
+- The Garden Tip edit form did not show the existing image in the crispy form.  After extended research it seemed the best way to resolve this was to add code to show the existing image above the form.  This was checked with python conditional code to ensure that an image did previously exist, before showing.
+- A Slug composed from the title is used as a unique identifier in the code for a Garden Tip.  This is usually created in Admin from the title.  This was researched and the "slugify" django function identified to create a slug from the title when the form was created and posted in the view.py file.
+- The form settings preventedd a from being submitted that was not valid, except when having a unique title.  Code was added to flag this up and display a warning, with the user directed to create the Garden Tip again with a unique title.
 
 ### Unfixed Bugs
 
