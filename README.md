@@ -39,6 +39,9 @@ An ideation process was undertaken to suggest and prioritise the user experience
         11. As a **user who has created Garden Tips**, I can **get a view showing just the garden tips I have submmitted** so that **I can go straight to my tips if I want to edit any or see the comments for any**.
         12. As a **site user**, I can **record my region as part of he registration process** so that **this is then provided to me, each time I create a Garden Tip**.
 
+        #### Garden User Testing Feedback:
+        User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, the could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
+
 ## Features 
 
 ### Features Completed
@@ -143,7 +146,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
     -  Clicking links brings up other views - e.g. User Registration, User Login, Create New Garden Tip, Edit New Garden Tip, Delete Garden Tip, Logout, etc.  On completion of these activites the user is typically returned to the Home page. 
 
 -   ### Colour Scheme
-    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar. "Hunter Green" - #074507 was used to complement this across the site.
+    -  For a Gardening site, Green will be the predominant colour.  Much of this is provided by the images and the feature garden image above the navigation bar. "Hunter Green" - #074507 was used to complement this across the site.  This contrasted well with a white background and provides a simple style to read nd use.
 
     [Hunter Green](https://htmlcolorcodes.com/colors/hunter-green/)
     
@@ -221,15 +224,36 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ## Testing 
 
+### Functional Testing
+
+The site was functionally tested to see that all the capabilities intended worked.  Initially this was done across multiple browsers and devices to test access and navidation.  The remaining teste were done for a logged in user on Chrome.
+
+![Functional Testing - 1](./doc-assets/testing/FuncTest1.png)
+
+![Functional Testing - 2](./doc-assets/testing/FuncTest2.png)
 
 ### Validator Testing 
 
 - HTML
-  - No errors and 4 warnings were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmarkchips.github.io%2Fprevent-awareness%2Findex.html)
+  - No errors or warnings were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fmarkchips.github.io%2Fprevent-awareness%2Findex.html)
+
+![HTML Testing](./doc-assets/testing/HTML%20Testing.png)
+
 - CSS
   - No errors were found when passing through the official [W3C validator](https://jigsaw.w3.org/css-validator/validator)
+
+![CSS Testing](./doc-assets/testing/CSSTesting.png)
+
 - JavaScript
-  - No errors and 82 pre ES6 compatability warnings were received using the [JSHint validator](https://jshint.com/)
+  - No errors and many pre ES6 compatability warnings were received using the [JSHint validator](https://jshint.com/)
+
+![JavaScript Testing](./doc-assets/testing/JavascriptTesting.png)
+
+- Python
+  - The major files were tested with no errors, except a few "Line Too Long" warnings were received using the [CI Python Linter](https://pep8ci.herokuapp.com/)
+ 
+![Python Testing 1](./doc-assets/testing/PythonTesting1.png) 
+![Python Testing 2](./doc-assets/testing/PythonTesting2.png) 
 
 ### Unfixed Bugs
 
