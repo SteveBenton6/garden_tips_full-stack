@@ -16,6 +16,7 @@ All tip and feedback content (new and updated) is reviewed by admin before publi
 * [Deployment](#deployment)
 * [Credits](#credits)
 
+
 ## User Experience (UX)
 
 An ideation process was undertaken to suggest and prioritise the user experience for the site.  From this user stories were generated, prioritised (including establishing a Minimum Viable Product) and managed using a Kanban board on GitHub.
@@ -42,6 +43,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
         #### Garden User Testing Feedback:
         User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, the could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
 
+
 ## Features 
 
 ### Features Completed
@@ -51,12 +53,13 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ![Home Page](./doc-assets/features/HomePage2.png)
 
+
 - __Register__
 
   - Clicking this button provides a Sign Up Screen.  Enter Username and Password (twice for validation) and optionally email.
-
   
 ![Register and Login Pages](./doc-assets/features/RegisterLogin.png)
+
 
 - __Login__
 
@@ -64,11 +67,13 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ![Logged In Home Page ](./doc-assets/features/LoggedInHome%20Page.png)
 
+
 - __About__
 
   - Clicking About - goes to the About Page, giving a Description of the Site and how to use it.
 
   ![Logged In Home Page ](./doc-assets/features/About.png)
+
 
 - __Click Garden Tip Item__
 
@@ -76,9 +81,11 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
   ![Logged In Home Page ](./doc-assets/features/GardenTip.png)
 
+
 - __Logout__
 
   - Clicking Logout will provide a screen to enable the user to log out of the system.
+
 
 - __Leave and Edit Feedback__
 
@@ -90,6 +97,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ![View and Edit Feedback](./doc-assets/features/LeaveFeedback.png)
 
+
 - __Create a Garden Tip__ 
 
   - After clicking the Create Tip buttion in the top navigation menu - the user is provided with a form to submit their Graden Tip.
@@ -98,6 +106,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ![Create Garden Tip](./doc-assets/features/CreateTip.png)
 
+
 - __Edit a Graden Tip__ 
 
   - The creator of a Garden Tip is provided with an Edit and Delete button for the tip.
@@ -105,11 +114,13 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 ![Edit Garden Tip](./doc-assets/features/EditTip.png)
 
+
 - __Delete A Garden Tip__
 
   - After clicking the Delete button, the user is provided with a choice of confirming delete, or returning to the Homepage.  To avoid accidental deletion.
 
 ![Delete Garden Tip](./doc-assets/features/DeleteTip.png)
+
 
 - __Admin Approval of new and edited Feedback and Garden Tips__
 
@@ -136,6 +147,12 @@ An ideation process was undertaken to suggest and prioritise the user experience
 	- Add a button in the Navigation Menu - Show All Garden Tips
   - Display all the Garden Tips raised by the logged in User.
   - Speed up finding and editing.
+
+
+#### Garden User Testing Feedback:
+
+  User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, the could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
+
 
 ## Design
 
@@ -168,6 +185,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
   ![Data Models](./doc-assets/datamodel/Models.png)   
 
+
 ## Agile Project Management
 
 - An ideation process was undertaken to suggest and prioritise the user experience for the site.  From this user stories were generated, prioritised (including establishing a Minimum Viable Product) and managed using a Kanban board on GitHub.
@@ -197,6 +215,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 - The MVP Was completed.  The additional items for future development are shown in the Future Features Column of the Kanban board.
 
+
 ## Technologies Used
 
 ### Languages Used
@@ -221,6 +240,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - django applications installed:
 
      ![Data Models](./doc-assets/technical/djangoapps.png)
+
 
 ## Testing 
 
@@ -255,6 +275,12 @@ The site was functionally tested to see that all the capabilities intended worke
 ![Python Testing 1](./doc-assets/testing/PythonTesting1.png) 
 ![Python Testing 2](./doc-assets/testing/PythonTesting2.png) 
 
+- Lighthouse Testing
+  - In Chrome Dev Tools the Lighthouse test was run.  Performance was likey impacted from the rendering of multiple images.
+ 
+![Lighthouse Testing](./doc-assets/testing/PerfTest.png) 
+
+
 ### Unfixed Bugs
 
 - When a piece of Feedback is edited - the existing Feedback score is not presented in the form (athough clearly visible on the page).  This view to be further enhanced to include the current feedback score in the edit form.
@@ -278,6 +304,7 @@ The site was functionally tested to see that all the capabilities intended worke
   - The project was deployed in Heroku.
 
 The live link can be found here - https://garden-tips-eaf37b541ca8.herokuapp.com/
+
 
 ## Credits 
 
