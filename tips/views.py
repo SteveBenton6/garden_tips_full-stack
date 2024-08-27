@@ -70,9 +70,11 @@ def feedback_edit(request, slug, comment_id):
             comment.post = post
             comment.approved = False
             comment.save()
-            messages.success(request, 'Updated Feedback Submitted for Approval!')
+            messages.success(
+                request, 'Updated Feedback Submitted for Approval!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating feedback!')
+            messages.add_message(request, messages.ERROR,
+                                 'Error updating feedback!')
 
     else:
         form = FeedbackForm(instance=comment)
@@ -95,7 +97,8 @@ def feedback_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Feedback deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own feedback!')
+        messages.add_message(request, messages.ERROR,
+                             'You can only delete your own feedback!')
 
     return HttpResponseRedirect(reverse('tips_detail', args=[slug]))
 
@@ -113,10 +116,12 @@ def create_tip(request):
             tip.approved = False
             tip.slug = slugify(tip.title)
             tip_form.save()
-            messages.success(request, "Your Garden Tip was Submitted for approval.")
+            messages.success(
+                request, "Your Garden Tip was Submitted for approval.")
             return redirect("home")
         else:
-            messages.error(request, "Your Garden Tip Title was not unique, please try again with a unique title.")
+            messages.error(
+                request, "Your Garden Tip Title was not unique, please try again with a unique title.")
             return redirect("create_tip")
     else:
         tip_form = GardenTipsForm()
@@ -133,19 +138,23 @@ def tip_edit(request, slug):
     retrieved_tip = get_object_or_404(queryset, slug=slug)
 
     if not request.user == retrieved_tip.creator:
-        messages.error(request, "You cannot edit an article you did not create!")
+        messages.error(
+            request, "You cannot edit an article you did not create!")
         return redirect("home")
 
     if request.method == "POST":
-        tip_form = GardenTipsForm(request.POST, request.FILES, instance=retrieved_tip)
+        tip_form = GardenTipsForm(
+            request.POST, request.FILES, instance=retrieved_tip)
         if tip_form.is_valid():
             tip = tip_form.save(commit=False)
             tip.status = 0
             tip_form.save()
-            messages.success(request, "Your edited Garden Tip was Submitted for approval.")
+            messages.success(
+                request, "Your edited Garden Tip was Submitted for approval.")
             return redirect("home")
         else:
-            messages.error(request, "Your Garden Tip Title was not unique, please try again with a unique title.")
+            messages.error(
+                request, "Your Garden Tip Title was not unique, please try again with a unique title.")
             return redirect("home")
 
     else:

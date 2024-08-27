@@ -10,7 +10,7 @@ All tip and feedback content (new and updated) is reviewed by admin before publi
 * [User Experience (UX)](#user-experience-ux) 
 * [Features](#features)
 * [Design](#design)
-* [Project Management](#project-management)
+* [Agile Project Management](#agile-project-management)
 * [Technologies Used](#technologies-used)
 * [Testing](#testing)
 * [Deployment](#deployment)
@@ -32,7 +32,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
         6. As a **site user / Admin**, I can **modify or delete my feedback on a Garden Tip** so that **I can be involved in the conversation**.
         7. As a **site Admin**, I can **create draft Garden Tips** so that **I can finish writing the content later**.
         8. As a **site user**, I can **create, modify or delete my Garden Tip** so that **I can give a current view**.
-        9. As a **site Admin**, I can **approve or disapprove Garden Tips or feedback** so that **I can filter out objectionable comments**.
+        9. As a **site Admin**, I can **approve or disapprove new or edited Garden Tips or feedback** so that **I can filter out objectionable comments**.
 
 
         #### Garden Tip Enhancements:
@@ -40,8 +40,8 @@ An ideation process was undertaken to suggest and prioritise the user experience
         11. As a **user who has created Garden Tips**, I can **get a view showing just the garden tips I have submmitted** so that **I can go straight to my tips if I want to edit any or see the comments for any**.
         12. As a **site user**, I can **record my region as part of he registration process** so that **this is then provided to me, each time I create a Garden Tip**.
 
-        #### Garden User Testing Enhancement Feedback:
-        User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, the could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
+        #### Garden Tip User Testing Enhancement Feedback:
+        User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, they could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
 
 
 ## Features 
@@ -49,7 +49,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 ### Features Completed
 
 - __Home Page__
-  - The site consists of a landing page with navigation menu at the top, is responsive and allows the user to look at the Garden Tip material submitted by registered users.  To submit (and subsequently edit) material and feedback you have to be a registered user.  On first entering the site the navigation menu includes buttons to Register and Login.  When the user has registered and logged in - these navigation buttons are replaced with one to Create a Garden Tip and one to Logout.  An About link Button is provided which links to an overview description of the site and how to use it.
+  - The site consists of a landing page with navigation menu at the top, is responsive and allows the user to look at the Garden Tip material submitted by registered users.  To submit (and subsequently edit) material and feedback you have to be a registered user.  On first entering the site the navigation menu includes buttons to Register and Login.  When the user has registered and logged in - these navigation buttons are replaced with ones to Create a Garden Tip and to Logout.  An About link Button is provided which links to an overview description of the site and how to use it.
 
 ![Home Page](./doc-assets/features/HomePage2.png)
 
@@ -90,7 +90,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 - __Leave and Edit Feedback__
 
   - A logged in user is able to submit feeedback on a tip (not for own Garden Tip), including a score rating.
-  - Tips are submitted for approval By Admin.
+  - Tip Feedback is submitted for approval By Admin.
   - When Feedback is approved, it is displayed, including the options to Edit or Delete.
   - When editing - the previous comment is placed in the Leave some Feedback box for editing.
   - When the delete button is clicked - a check you want to delete form is provided to ensure feedback is not accidently deleted.
@@ -100,14 +100,14 @@ An ideation process was undertaken to suggest and prioritise the user experience
 
 - __Create a Garden Tip__ 
 
-  - After clicking the Create Tip buttion in the top navigation menu - the user is provided with a form to submit their Garden Tip.
+  - After clicking the Create Tip button in the top navigation menu - the user is provided with a form to submit their Garden Tip.
   - The Title has to be unique - if it is not unique - a warning message is provided and the user starts again creating the Garden Tip.
   - The Garden Tip is submitted to admin for approval before being shown on the site.
 
 ![Create Garden Tip](./doc-assets/features/CreateTip.png)
 
 
-- __Edit a Graden Tip__ 
+- __Edit a Garden Tip__ 
 
   - The creator of a Garden Tip is provided with Edit and Delete buttons for the tip.
   - After clicking the Edit button, the user is provided with a form, pre-populated with the previously entered info.
@@ -149,7 +149,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
   - Speed up finding and editing.
 
 
-#### Garden User Testing Feedback:
+#### Garden Tip User Testing Feedback:
 
   User testers suggested a Search Button be provided.  So if a user wanted Tips on Tomatoes, the could search for Tomatoes and just get the related tips.  To be scoped and considered for future development.
 
@@ -224,7 +224,7 @@ An ideation process was undertaken to suggest and prioritise the user experience
 -   [HTML5](https://en.wikipedia.org/wiki/HTML5)
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
--   [Python](https://en.wikipedia.org/Python_(programming_language))
+-   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 ### Frameworks, Libraries & Programs Used
 
@@ -294,7 +294,7 @@ The functional testing included trying the site out on a range of devices.  No o
 
 - The Garden Tip edit form did not show the existing image in the crispy form.  After extended research it seemed the best way to resolve this was to add code to show the existing image above the form.  This was checked with python conditional code to ensure that an image did previously exist, before showing.
 - A Slug composed from the title is used as a unique identifier in the code for a Garden Tip.  This is usually created in Admin from the title.  This was researched and the "slugify" django function identified to create a slug from the title when the form was created and posted in the view.py file.
-- The form settings preventedd a from being submitted that was not valid, except when having a unique title.  Code was added to flag this up and display a warning, with the user directed to create the Garden Tip again with a unique title.
+- The form settings prevented a from being submitted that was not valid, except when having a unique title.  Code was added to flag this up and display a warning, with the user directed to create the Garden Tip again with a unique title.
 
 ### Unfixed Bugs
 
@@ -310,7 +310,7 @@ The functional testing included trying the site out on a range of devices.  No o
   - Secret key to run the application
   - Secret Key to interact with the SQL database
   - Secret Key to interact with the Cloudinary image storage
-- These three keys were stored in an env.py file, which was included in gitignore and so not uploaded to GitBub and so not revealed "publicly".
+- These three keys were stored in an env.py file, which was included in gitignore and so not uploaded to GitHub and so not revealed "publicly".
 
 - A Garden Tips project was set up in the Heroku application.
   - The three secret environemntal settings, detailed above, were recorded in Heroku.
